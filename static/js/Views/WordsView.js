@@ -1,0 +1,41 @@
+var WordsView = Backbone.View.extend({
+  template: _.template(`
+  <div id="container-exp">
+    <div class="trial">
+      <h1></h1>
+      <div id="text-here"><%= word %></div>
+    </div>
+  </div>`),
+
+  tagName: 'div',
+
+  className: 'main-container',
+
+  events: {
+
+  },
+
+  current_stimuli: undefined,
+
+  initialize: function(){
+    this.current_stimuli = 0;
+  },
+
+  render: function(){
+    this.$el.html(this.template({word: this.model.get('stimuli')[this.current_stimuli]}));
+    return this
+  },
+
+  showWords: function(){
+    if (this.current_stimuli < this.model.get("stimuli").length){
+      this.render()
+      this.current_stimuli++;
+      var _this = this;
+      setTimeout(function(){_this.showWords()}, 1000)
+    }
+    else{
+      this.remove()
+      router.navigate("answer", {trigger: true});
+    }
+  }
+});
