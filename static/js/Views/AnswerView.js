@@ -1,33 +1,21 @@
 var AnswerView = Backbone.View.extend({
   template: _.template(`
-    <div id="container-exp">
-      <div id="prompt-response">
-        <h1></h1>
-        <p></p>
-        <div id="text-here"></div>
-        <div id="form-here">
-          <div>
-            Please type, in order, as many words as you can remember
-          </div>
-          <textarea name='comments' id='comments' minlength= '20' maxlength='400'></textarea><br>
-          <div>
-            <button type="button" class="btn btn-primary button-submit" id="sentence_trial_submit">Submit</button>
-          </div>
-        <div id="stim"></div>
-        <div id="query"></div>
-      </div>
+    <div class="answer-instructions">Please type, in order, as many words as you can remember</div>
+    <textarea name='comments' id='comments'></textarea><br>
+    <div>
+      <button type="button" class="btn btn-primary button-submit" id="sentence_trial_submit">Submit</button>
     </div>`),
 
   tagName: 'div',
 
-  className: 'main-container',
+  className: 'answer-container',
 
   events: {
-    "click .button-submit": "nextTrial"
+    "click .button-submit": "submitAnswer",
+    "keypress #comments": "handleKeyPress"
   },
 
   initialize: function(){
-    this.words = ["exhibit", "Wilson", "led", "scowled", "soda", "plate"]
   },
 
   render: function(){
@@ -35,11 +23,31 @@ var AnswerView = Backbone.View.extend({
     return this
   },
 
-  nextTrial: function(){
-    if (this.words.length > 0){
-      router.navigate("basicexp", {trigger: true})
+  handleKeyPress: function(e){
+    if (e.keyCode == 32) { //we want to clear the word, to make it more like spoken answer task
+      e.preventDefault();
+      if (this.model.get('answer') != undefined){
+        this.model.set('answer', this.model.get('answer') + " " + this.$('textarea').val()); //log what word was in the textarea
+      }
+      else {
+        this.model.set('answer', this.$('textarea').val());
+      }
+      this.$('#comments').val('') //clear the textarea
     }
-    else{
+  },
+
+  submitAnswer: function() {
+    //do some sort of psiTurk record trial data here?
+    this.model.set('answer', this.model.get('answer') + " " + this.$('textarea').val()); //log what word was in the textarea one more time
+    psiTurk.recordTrialData([this.model.get('stimuli'), this.model.get('answer'), this.model.get('type'), this.model.get('condition')])
+    this.nextTrial();
+  },
+
+  nextTrial: function(){
+    if (this.$('textarea').val().length > 0){ //make sure they have typed something
+      router.navigate("basicexperiment/" + (this.model.get('id') + 1), {trigger: true})
+    }
+    else { //they didn't get the instructions, send them back to a special instructions page
       router.navigate("instructions", {trigger: true})
     }
   }

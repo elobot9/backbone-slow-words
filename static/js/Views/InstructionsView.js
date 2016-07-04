@@ -9,7 +9,7 @@ var InstructionsView = Backbone.View.extend({
   
   tagName: "div",
 
-  className: "main-container",
+  className: "instructions-container",
 
   events: {
     "click .button-next":   "showNextInstruction",
@@ -32,7 +32,7 @@ var InstructionsView = Backbone.View.extend({
 
   endInstructions: function() {
     this.remove()
-    router.navigate("basicexp", {trigger: true});
+    router.navigate("basicexperiment", {trigger: true});
   },
 
 });

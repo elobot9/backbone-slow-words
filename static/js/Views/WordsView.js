@@ -35,7 +35,7 @@ var WordsView = Backbone.View.extend({
     }
     else{
       this.remove()
-      router.navigate("answer", {trigger: true});
+      router.navigate("answer/" + this.model.get('id'), {trigger: true});
     }
   }
 });

@@ -28,7 +28,8 @@ $(window).load( function(){
 	//define and start the router
 	window.router = new ExperimentRouter();
 	Backbone.history.start();
-	router.navigate("instructions", {trigger: true});
+	router.navigate('answer/0', {trigger: true});
+	// router.navigate("instructions", {trigger: true});
 
 	//set up some models for the stimuli
 });

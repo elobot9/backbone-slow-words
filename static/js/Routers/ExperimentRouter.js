@@ -2,9 +2,10 @@ var ExperimentRouter = Backbone.Router.extend({
 
   routes: {
     "instructions":          "instructions",
-    "basicexp":              "basicexp",
-    "basicexp/:id":          "basicexp",
-    "answer":                "answer", 
+    "basicexperiment":       "basicexperiment",
+    "basicexperiment/:id":   "basicexperiment",
+    "answer":                "answer",
+    "answer/:id":                "answer",
     "experiment/:id":        "experiment",
     "experiment/:id/:stage": "experiment"
   },
@@ -14,7 +15,7 @@ var ExperimentRouter = Backbone.Router.extend({
     $('#main-container').html(view.render().el)
   },
 
-  basicexp: function(id){
+  basicexperiment: function(id){
     var words_model;
     if (id != undefined){
       words_model = words_collection.get(id);
@@ -29,13 +30,18 @@ var ExperimentRouter = Backbone.Router.extend({
   },
 
   experiment: function(id, stage) {
-    psiTurk.recordTrialData(['recording experiment data', 'whatever']);
-    psiTurk.saveData();
   },
 
-  answer: function(){
-    var view = new AnswerView();
-    $('#main-container').html(view.render().el)
+  answer: function(id){
+    var words_model;
+    if (id != undefined){
+      words_model = words_collection.get(id);
+    }
+    else {
+      words_model = words_collection.get(0);
+    }
+    var view = new AnswerView({model: words_model});
+    $('#main-container').html(view.render().el);
   }
 
 });
