@@ -16,6 +16,15 @@ var mycounterbalance = counterbalance;  // they tell you which condition you hav
  * Run Task
  ******************/
 $(window).load( function(){
+	//initialize models for trials
+	window.words_collection = new WordTrialsCollection();
+	for (var i = 0; i < rawSentencesA.length; i++) {
+		words_collection.add({id: i, stimuli: rawSentencesA[i], type: "sentence", condition: "A"});
+		words_collection.add({id: i + 10, stimuli: rawWordsA[i], type: "words", condition: "A"});
+		words_collection.add({id: i + 20, stimuli: rawSentencesB[i], type: "sentence", condition: "B"});
+		words_collection.add({id: i + 30, stimuli: rawWordsB[i], type: "words", condition: "B"});
+	}
+
 	//define and start the router
 	window.router = new ExperimentRouter();
 	Backbone.history.start();

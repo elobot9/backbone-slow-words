@@ -1,6 +1,7 @@
 var WordsTrialModel = Backbone.Model.extend({
-	initialize: function(id, stimuli) {
-		this.id = id;
-		this.stimuli = stimuli; //an array of words
+
+	stimuliArray: function(){
+		return this.get('stimuli').split(" ");
 	}
+
 });

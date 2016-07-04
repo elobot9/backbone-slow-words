@@ -22,12 +22,12 @@ var WordsView = Backbone.View.extend({
   },
 
   render: function(){
-    this.$el.html(this.template({word: this.model.get('stimuli')[this.current_stimuli]}));
+    this.$el.html(this.template({word: this.model.stimuliArray()[this.current_stimuli]}));
     return this
   },
 
   showWords: function(){
-    if (this.current_stimuli < this.model.get("stimuli").length){
+    if (this.current_stimuli < this.model.stimuliArray().length){
       this.render()
       this.current_stimuli++;
       var _this = this;

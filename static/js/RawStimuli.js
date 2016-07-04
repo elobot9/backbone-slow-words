@@ -12,17 +12,43 @@ var rawSentencesA = [
 ];
 
 var rawWordsA = [
-["exhibit", "Wilson", "led", "scowled", "soda", "plate"],
-["baked", "doctor", "tour", "cheesy", "son", "glimpse"],
-["had", "who", "mechanics", "Emily", "rattled", "museum"],
-["loudly", "seats", "Carroll", "their", "grease", "stopping"],
-["Suzan", "coconut", "by", "read", "beach", "weight"],
-["wipe", "curator", "only", "airplane", "caught", "love"],
-["the", "when", "kids", "clipboard", "window", "had"],
-["cart", "librarian", "all", "growing", "began", "were"],
-["home", "hard", "seats", "Tony", "factory", "a"],
-["history", "coastline", "exotic", "she", "trees", "who"]
+"exhibit Wilson led scowled soda plate",
+"baked doctor tour cheesy son glimpse",
+"baked doctor tour cheesy son glimpse",
+"baked doctor tour cheesy son glimpse",
+"baked doctor tour cheesy son glimpse",
+"baked doctor tour cheesy son glimpse",
+"baked doctor tour cheesy son glimpse",
+"baked doctor tour cheesy son glimpse",
+"baked doctor tour cheesy son glimpse",
+"baked doctor tour cheesy son glimpse"
 ];
+
+// var rawWordsA = [
+// ["exhibit", "Wilson", "led", "scowled", "soda", "plate"],
+// ["baked", "doctor", "tour", "cheesy", "son", "glimpse"],
+// ["had", "who", "mechanics", "Emily", "rattled", "museum"],
+// ["loudly", "seats", "Carroll", "their", "grease", "stopping"],
+// ["Suzan", "coconut", "by", "read", "beach", "weight"],
+// ["wipe", "curator", "only", "airplane", "caught", "love"],
+// ["the", "when", "kids", "clipboard", "window", "had"],
+// ["cart", "librarian", "all", "growing", "began", "were"],
+// ["home", "hard", "seats", "Tony", "factory", "a"],
+// ["history", "coastline", "exotic", "she", "trees", "who"]
+// ];
+
+// var rawWordsA = [
+// ["exhibit", "Wilson", "led", "scowled", "soda", "plate"],
+// ["baked", "doctor", "tour", "cheesy", "son", "glimpse"],
+// ["had", "who", "mechanics", "Emily", "rattled", "museum"],
+// ["loudly", "seats", "Carroll", "their", "grease", "stopping"],
+// ["Suzan", "coconut", "by", "read", "beach", "weight"],
+// ["wipe", "curator", "only", "airplane", "caught", "love"],
+// ["the", "when", "kids", "clipboard", "window", "had"],
+// ["cart", "librarian", "all", "growing", "began", "were"],
+// ["home", "hard", "seats", "Tony", "factory", "a"],
+// ["history", "coastline", "exotic", "she", "trees", "who"]
+// ];
 
 
 var rawSentencesB = [
@@ -37,13 +63,27 @@ var rawSentencesB = [
 "The tour began with a cheesy video of the soda factory's history.",
 "Exotic coconut trees were growing all along the coastline."];
 
-var rawWordsB = 
-[["bumped", "field", "set", "the", "Lisa", "ascending"],
-["robot", "minister", "keys", "was", "waves", "goal"], 
-["sprayed", "sun", "on", "choosing", "kick", "six"], 
-["pyramids", "Rosa", "in", "crawled", "hours", "sailboat"], 
-["many", "to", "Sunday", "everyone", "dinner", "audience"],
-["as", "finished", "they", "heavy", "planet", "along"],
-["jungle", "entered", "the", "walked", "hands", "all"],
-["he", "bow", "waited", "vines", "settled", "the"],
-["along", "penalty", "surface", "in", "behind", "was"]];
+
+var rawWordsB = [
+	"bumped field set the Lisa ascending",
+	"robot minister keys was waves goal",
+	"robot minister keys was waves goal",
+	"robot minister keys was waves goal",
+	"robot minister keys was waves goal",
+	"robot minister keys was waves goal",
+	"robot minister keys was waves goal",
+	"robot minister keys was waves goal",
+	"robot minister keys was waves goal",
+	"robot minister keys was waves goal"
+];
+
+// var rawWordsB = 
+// [["bumped", "field", "set", "the", "Lisa", "ascending"],
+// ["robot", "minister", "keys", "was", "waves", "goal"], 
+// ["sprayed", "sun", "on", "choosing", "kick", "six"], 
+// ["pyramids", "Rosa", "in", "crawled", "hours", "sailboat"], 
+// ["many", "to", "Sunday", "everyone", "dinner", "audience"],
+// ["as", "finished", "they", "heavy", "planet", "along"],
+// ["jungle", "entered", "the", "walked", "hands", "all"],
+// ["he", "bow", "waited", "vines", "settled", "the"],
+// ["along", "penalty", "surface", "in", "behind", "was"]];

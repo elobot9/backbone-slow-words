@@ -3,6 +3,7 @@ var ExperimentRouter = Backbone.Router.extend({
   routes: {
     "instructions":          "instructions",
     "basicexp":              "basicexp",
+    "basicexp/:id":          "basicexp",
     "answer":                "answer", 
     "experiment/:id":        "experiment",
     "experiment/:id/:stage": "experiment"
@@ -13,9 +14,15 @@ var ExperimentRouter = Backbone.Router.extend({
     $('#main-container').html(view.render().el)
   },
 
-  basicexp: function(){
-    var wordsmodel = new WordsTrialModel({id: 1, stimuli: ["some","words"]});
-    var view = new WordsView({model: wordsmodel});
+  basicexp: function(id){
+    var words_model;
+    if (id != undefined){
+      words_model = words_collection.get(id);
+    }
+    else {
+      words_model = words_collection.get(0);
+    }
+    var view = new WordsView({model: words_model});
     $('#main-container').html(view.render().el);
     view.showWords()
     window.test_view = view;
