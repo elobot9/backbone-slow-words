@@ -6,6 +6,7 @@ body {
     color: black;
     font-weight: 300; 
     font-size: 13pt;
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -74,4 +75,44 @@ h1 {
 #error img {
   padding-right: 10px;
   padding-top: 15px;
+}
+
+#main-container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 200px;
+  width: 450px;
+}
+
+#main-container button {
+  float:right;
+}
+
+.answer-container textarea {
+  width: 100%;
+  text-align: center;
+}
+
+#text-here {
+  text-align: center;
+  font-size: 22pt;
+}
+
+.answer-container button {
+  width: 100%;
+  height: 50px;
+}
+
+#answer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-style: hidden;
+  width: 100%;
+  text-align: center;
+}
+
+#answer:focus {
+  border-style: hidden;
+  outline: none;
 }

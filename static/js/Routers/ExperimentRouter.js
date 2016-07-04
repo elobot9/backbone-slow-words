@@ -42,6 +42,7 @@ var ExperimentRouter = Backbone.Router.extend({
     }
     var view = new AnswerView({model: words_model});
     $('#main-container').html(view.render().el);
+    $('#answer').focus();
   }
 
 });

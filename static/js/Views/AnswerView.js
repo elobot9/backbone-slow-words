@@ -1,7 +1,7 @@
 var AnswerView = Backbone.View.extend({
   template: _.template(`
     <div class="answer-instructions">Please type, in order, as many words as you can remember</div>
-    <textarea name='comments' id='comments'></textarea><br>
+    <input type="text" name='answer' id='answer'><br>
     <div>
       <button type="button" class="btn btn-primary button-submit" id="sentence_trial_submit">Submit</button>
     </div>`),
@@ -12,7 +12,7 @@ var AnswerView = Backbone.View.extend({
 
   events: {
     "click .button-submit": "submitAnswer",
-    "keypress #comments": "handleKeyPress"
+    "keypress #answer": "handleKeyPress"
   },
 
   initialize: function(){
@@ -27,24 +27,24 @@ var AnswerView = Backbone.View.extend({
     if (e.keyCode == 32) { //we want to clear the word, to make it more like spoken answer task
       e.preventDefault();
       if (this.model.get('answer') != undefined){
-        this.model.set('answer', this.model.get('answer') + " " + this.$('textarea').val()); //log what word was in the textarea
+        this.model.set('answer', this.model.get('answer') + " " + this.$('#answer').val()); //log what word was in the input
       }
       else {
-        this.model.set('answer', this.$('textarea').val());
+        this.model.set('answer', this.$('#answer').val());
       }
-      this.$('#comments').val('') //clear the textarea
+      this.$('#answer').val('') //clear the textarea
     }
   },
 
   submitAnswer: function() {
     //do some sort of psiTurk record trial data here?
-    this.model.set('answer', this.model.get('answer') + " " + this.$('textarea').val()); //log what word was in the textarea one more time
+    this.model.set('answer', this.model.get('answer') + " " + this.$('#answer').val()); //log what word was in the input one more time
     psiTurk.recordTrialData([this.model.get('stimuli'), this.model.get('answer'), this.model.get('type'), this.model.get('condition')])
     this.nextTrial();
   },
 
   nextTrial: function(){
-    if (this.$('textarea').val().length > 0){ //make sure they have typed something
+    if (this.$('#answer').val().length > 0){ //make sure they have typed something
       router.navigate("basicexperiment/" + (this.model.get('id') + 1), {trigger: true})
     }
     else { //they didn't get the instructions, send them back to a special instructions page
