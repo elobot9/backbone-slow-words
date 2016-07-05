@@ -1,11 +1,13 @@
 var InstructionsView = Backbone.View.extend({
   template: _.template(`
-    <p><%= instruction %></p>
+    <div><%= instruction %></div>
     <div>
       <button type='button' id='next' value='next' class='btn btn-primary btn-lg button-next'>Next 
         <span class='glyphicon glyphicon-arrow-right'></span>
       </button>
-    </div>`),
+    </div>
+    <div id= 'exp-img'><%= img %></div>
+    `),
   
   tagName: "div",
 
@@ -13,21 +15,34 @@ var InstructionsView = Backbone.View.extend({
 
   events: {
     "click .button-next":   "showNextInstruction",
-    "click .button-final": "endInstructions"
   },
 
   initialize: function() {
-    this.instructions = ["First text", "Second Text"]
   },
 
   render: function() {
-    this.$el.html(this.template({instruction: this.instructions[0]}));
+
+    this.$el.html(this.template({instruction: this.model.get('text'), img: this.model.get('img')}));
     return this
   },
 
   showNextInstruction: function() {
-    this.$('p').text(this.instructions[1])
-    this.$('.button-next').removeClass('button-next').addClass('button-final').text('Start Experiment')
+    if (this.model.get('last')){
+      if (this.model.get('section') == 1){
+        router.navigate("audiocaptcha", {trigger: true})
+      }
+      else if (this.model.get('section') == 2){
+        router.navigate("basicexperiment", {trigger: true})
+      }
+      else if(this.model.get('section') == 3){
+        router.navigate("basicexperiment/1", {trigger: true})
+      }
+    }
+    else {
+      router.navigate('instructions/' + (this.model.get('id') + 1), {trigger: true});
+    }
+    // this.$('p').text(this.instructions[1])
+    // this.$('.button-next').removeClass('button-next').addClass('button-final').text('Start Experiment')
   },
 
   endInstructions: function() {

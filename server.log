@@ -15,3 +15,223 @@
 2016-07-03 23:01:55,082 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
 2016-07-03 23:01:55,086 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
 2016-07-03 23:01:55,107 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4193)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4196)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4197)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4200)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4201)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4171)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4172)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4173)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4174)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4175)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4176)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4204)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4181)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4205)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4186)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4187)
+[2016-07-04 10:46:23 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:4190)
+2016-07-04 10:46:26,323 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,331 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,337 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,348 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,361 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,372 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,374 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,384 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,407 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,415 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,457 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,611 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,775 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,796 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,805 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,838 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 10:46:26,840 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+[2016-07-04 12:48:18 +0000] [4166] [CRITICAL] WORKER TIMEOUT (pid:18546)
+2016-07-04 12:48:18,443 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-04 17:24:44,088 Exception on /answer-screen.png [GET]
+Traceback (most recent call last):
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 665, in regularpage
+    return render_template(pagename)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 851, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 812, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 774, in _load_template
+    cache_key = self.loader.get_source(self, name)[1]
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: answer-screen.png
+2016-07-04 17:25:02,601 Exception on /answer-screen.png [GET]
+Traceback (most recent call last):
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 665, in regularpage
+    return render_template(pagename)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 851, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 812, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 774, in _load_template
+    cache_key = self.loader.get_source(self, name)[1]
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: answer-screen.png
+2016-07-04 17:25:33,928 Exception on /images/answer-screen.png [GET]
+Traceback (most recent call last):
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 667, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 851, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 812, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 774, in _load_template
+    cache_key = self.loader.get_source(self, name)[1]
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: images/answer-screen.png
+2016-07-04 17:25:37,818 Exception on /images/answer-screen.png [GET]
+Traceback (most recent call last):
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 667, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 851, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 812, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 774, in _load_template
+    cache_key = self.loader.get_source(self, name)[1]
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: images/answer-screen.png
+2016-07-04 17:25:55,510 Exception on /images/answer-screen.png [GET]
+Traceback (most recent call last):
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 667, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 851, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 812, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 774, in _load_template
+    cache_key = self.loader.get_source(self, name)[1]
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: images/answer-screen.png
+2016-07-04 17:25:59,742 Exception on /images/answer-screen.png [GET]
+Traceback (most recent call last):
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 667, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 851, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 812, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/simon/.local/lib/python2.7/site-packages/jinja2/environment.py", line 774, in _load_template
+    cache_key = self.loader.get_source(self, name)[1]
+  File "/home/simon/.local/lib/python2.7/site-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: images/answer-screen.png
+2016-07-05 12:14:17,253 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,252 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,252 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,246 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,251 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,251 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,251 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,250 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,252 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,252 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,245 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,254 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,250 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,252 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,250 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,252 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,251 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,254 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,246 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,249 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,249 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,248 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,240 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,255 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,254 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,251 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,249 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,253 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,251 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,250 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,251 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,252 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,240 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js
+2016-07-05 12:14:17,246 /usr/local/lib/python2.7/dist-packages/psiturk/psiturk_js/psiturk.js

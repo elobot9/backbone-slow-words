@@ -31,7 +31,7 @@ var WordsView = Backbone.View.extend({
       this.render()
       this.current_stimuli++;
       var _this = this;
-      setTimeout(function(){_this.showWords()}, 1000)
+      setTimeout(function(){_this.showWords()}, 10)
     }
     else{
       this.remove()

@@ -44,11 +44,15 @@ var AnswerView = Backbone.View.extend({
   },
 
   nextTrial: function(){
-    if (this.$('#answer').val().length > 0){ //make sure they have typed something
-      router.navigate("basicexperiment/" + (this.model.get('id') + 1), {trigger: true})
+    if (this.model.get('id') == 0){
+      router.navigate("instructions/" + 7, {trigger: true})
     }
-    else { //they didn't get the instructions, send them back to a special instructions page
-      router.navigate("instructions", {trigger: true})
+    else if (this.model.get('id') == 10) {
+      //go to the post questionnaire
+      router.navigate("nbackinstructions", {trigger: true})
     }
+    else{
+      router.navigate("basicexperiment/" + (this.model.get("id") + 1), {trigger: true})
+          }
   }
 });
