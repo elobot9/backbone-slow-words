@@ -1,6 +1,6 @@
 var NBackInstructionsView = Backbone.View.extend({
   template: _.template(`
-    <p><%= instruction %></p>
+    <p><%=instruction %></p>
     <div>
       <button type='button' id='next' value='next' class='btn btn-primary btn-lg button-next'>Next 
         <span class='glyphicon glyphicon-arrow-right'></span>
@@ -32,7 +32,7 @@ var NBackInstructionsView = Backbone.View.extend({
 
   endInstructions: function() {
     this.remove()
-    router.navigate("memorytest", {trigger: true});
+    router.navigate("nbacktrial", {trigger: true});
   },
 
 });

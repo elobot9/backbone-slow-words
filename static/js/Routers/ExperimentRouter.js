@@ -9,6 +9,10 @@ var ExperimentRouter = Backbone.Router.extend({
     "answer":                "answer",
     "answer/:id":            "answer",
     "nbackinstructions":     "nbackinstructions",
+    "nbacktrial":            "nbacktrial",
+    "nbacktrial/:id":        "nbacktrial",
+    "nback":                 "nback",
+    "nback/:id":             "nback",   
     "memorytest":            "memorytest",
     "postquestionnaire":     "postquestionnaire"
   },
@@ -61,6 +65,43 @@ var ExperimentRouter = Backbone.Router.extend({
 
   nbackinstructions: function(){
     var view = new NBackInstructionsView();
+    $('#main-container').html(view.render().el)
+  },
+
+  nbacktrial: function(id){
+    var nback_model;
+    if (id != undefined && id > 2){
+      var raw_score = nback_practice_collection.get('session_accuracy');
+      var score = Math.floor(raw_score / 3)
+
+      if (score < 70){
+        //Make them re-do the practice experiment.
+        create_practice_nback();
+        router.navigate('nbacktrial/:0', {trigger: true})
+      }
+      else{
+        //begin the true NBack Trial
+        router.navigate('nback', {trigger: true})
+      }
+    }
+    else{
+      if(id == undefined){
+        var nback_model = nback_practice_collection.get(0)
+      }
+      else{
+        var nback_model = nback_practice_collection.get(id)
+      }
+    var nback_collection = nback_model.createNBackCollection();
+    var view = new NBackTrialView({model: nback_model, collection: nback_collection});
+    $('#main-container').html(view.render().el);
+    //view.playLetters();
+    view.keyListen()
+    };
+
+  },
+
+  nback: function(){
+    var view = new NBackProperView();
     $('#main-container').html(view.render().el)
   },
 

@@ -18,13 +18,14 @@ var mycounterbalance = counterbalance;  // they tell you which condition you hav
 $(window).load( function(){
 	//initialize models for trials
 	window.words_collection = new WordTrialsCollection();
-	words_trial_model = new WordsTrialModel({id: 0, stimuli: "This is a practice experiment to get you started", type: "trial", condition: "trial"})
+	words_trial_model = new WordsTrialModel({id: 0, stimuli: "This is a practice example to get you started", type: "trial", condition: "trial"})
 	words_collection.add(words_trial_model)
 	for (var i = 0; i < 5; i++) {
 		words_collection.add({id: i + 1, stimuli: rawSentencesA[i], type: "sentence", condition: "A"});
 		words_collection.add({id: i + 6, stimuli: rawWordsA[i], type: "words", condition: "A"});
 	}
 	create_instructions();
+	create_practice_nback();
 	//define and start the router
 	window.router = new ExperimentRouter();
 	Backbone.history.start();
@@ -80,3 +81,11 @@ var create_instructions = function() {
 		begin_word_trial_instructions])
 
 };
+
+var create_practice_nback = function(){
+	window.nback_practice_collection = new NBackTrialCollection({session_accuracy: 0});
+	var nback_prac1 = new NBackTrialModel({id: 0, length: 10});
+	var nback_prac2 = new NBackTrialModel({id: 1, length: 10});
+	var nback_prac3 = new NBackTrialModel({id: 2, length: 10});
+	nback_practice_collection.add([nback_prac1, nback_prac2, nback_prac3])
+}
