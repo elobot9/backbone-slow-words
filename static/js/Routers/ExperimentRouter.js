@@ -9,12 +9,16 @@ var ExperimentRouter = Backbone.Router.extend({
     "answer":                "answer",
     "answer/:id":            "answer",
     "nbackinstructions":     "nbackinstructions",
-    "nbacktrial":            "nbacktrial",
-    "nbacktrial/:id":        "nbacktrial",
-    "nback":                 "nback",
-    "nback/:id":             "nback",   
+    "nbackpractice":         "nbackpractice",
+    "nbackfeedback":         "nbackfeedback",
+    "nbackfeedback/:id":     "nbackfeedback",
+    "dualtaskexperiment":    "dualTaskExperiment",
+    "dualtaskexperiment/:id": "dualTaskExperiment",
+    "dualtaskanswer":        "dualTaskAnswer",
+    "dualtaskanswer/:id":    "dualTaskAnswer",
     "memorytest":            "memorytest",
-    "postquestionnaire":     "postquestionnaire"
+    "postquestionnaire":     "postquestionnaire",
+    "debug": "debug"
   },
 
   instructions: function(id) {
@@ -26,7 +30,6 @@ var ExperimentRouter = Backbone.Router.extend({
     else {
       model = instructions_collection.get(0);
     }
-    console.log(model)
     var view = new InstructionsView({model: model});
     $('#main-container').html(view.render().el)
   },
@@ -36,6 +39,7 @@ var ExperimentRouter = Backbone.Router.extend({
     $('#main-container').html(view.render().el)
   },
 
+  //Start running words experiment from trial with this id. Data from these is recorded for the user
   basicexperiment: function(id){
     var words_model;
     if (id != undefined){
@@ -50,6 +54,7 @@ var ExperimentRouter = Backbone.Router.extend({
     window.test_view = view;
   },
 
+  //Show answer page for words trial with this id
   answer: function(id){
     var words_model;
     if (id != undefined){
@@ -63,46 +68,54 @@ var ExperimentRouter = Backbone.Router.extend({
     $('#answer').focus();
   },
 
+  //Show the first NBack Instructions
   nbackinstructions: function(){
     var view = new NBackInstructionsView();
     $('#main-container').html(view.render().el)
   },
 
-  nbacktrial: function(id){
-    var nback_model;
-    if (id != undefined && id > 2){
-      var raw_score = nback_practice_collection.get('session_accuracy');
-      var score = Math.floor(raw_score / 3)
-
-      if (score < 70){
-        //Make them re-do the practice experiment.
-        create_practice_nback();
-        router.navigate('nbacktrial/:0', {trigger: true})
-      }
-      else{
-        //begin the true NBack Trial
-        router.navigate('nback', {trigger: true})
-      }
-    }
-    else{
-      if(id == undefined){
-        var nback_model = nback_practice_collection.get(0)
-      }
-      else{
-        var nback_model = nback_practice_collection.get(id)
-      }
-    var nback_collection = nback_model.createNBackCollection();
-    var view = new NBackTrialView({model: nback_model, collection: nback_collection});
+  //A special practice N-Back trial
+  nbackpractice: function(){
+    var nback_practice_model = new NBackTrialModel({length: 10});
+    var view = new NBackPracticeView({model: nback_practice_model})
+    window.current_nback_practice_model = nback_practice_model;
     $('#main-container').html(view.render().el);
-    //view.playLetters();
-    view.keyListen()
-    };
-
   },
 
-  nback: function(){
-    var view = new NBackProperView();
-    $('#main-container').html(view.render().el)
+  //Show the user feedback about their nback practice trial
+  nbackfeedback: function(){
+    var view = new NBackFeedbackView({model: window.current_nback_practice_model});
+    $('#main-container').html(view.render().el);
+  },
+
+  dualTaskInstructions: function(){
+    var view = new DualTaskInstructionsView()
+    $('#main-container').html(view.render().el);
+  },
+
+  dualTaskExperiment: function(id){
+    var model;
+    if (id != undefined) {
+      model = dual_task_trials.get(id);
+    }
+    else {
+      model = dual_task_trials.get(0);
+    }
+    var view = new DualTaskTrialView({model: model});
+    $('#main-container').html(view.render().el);
+  },
+
+  dualTaskAnswer: function(id){
+    var model;
+    if (id != undefined){
+      model = dual_task_trials.get(id);
+    }
+    else {
+      model = dual_task_trials.get(0);
+    }
+    var view = new AnswerView({model: model});
+    $('#main-container').html(view.render().el);
+    $('#answer').focus();
   },
 
   memorytest: function(){
@@ -113,7 +126,11 @@ var ExperimentRouter = Backbone.Router.extend({
   postquestionnaire: function(){
     var view = new PostQuestionnaireView();
     $('#main-container').html(view.render().el)
-  }
+  },
 
+  debug: function() {
+    var view = new DebugView();
+    $('#main-container').html(view.render().el)
+  }
 
 });

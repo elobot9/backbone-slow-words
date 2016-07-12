@@ -4,6 +4,15 @@
  *     utils.js
  */
 
+/*
+	At the end of running the experiment, you will have 2 collections of models which contain the data from the user
+	words_collection contains the data from the single task experiment
+	dual_task_trials contains the data from the dual task experiment
+
+	Additionally, current_nback_practice_model contains data from the most recent nback practice session
+*/
+
+
 // Initalize psiturk object
 var psiTurk = new PsiTurk(uniqueId, adServerLoc, mode);
 
@@ -16,29 +25,41 @@ var mycounterbalance = counterbalance;  // they tell you which condition you hav
  * Run Task
  ******************/
 $(window).load( function(){
+	create_nback_sounds();
 	//initialize models for trials
-	window.words_collection = new WordTrialsCollection();
-	words_trial_model = new WordsTrialModel({id: 0, stimuli: "This is a practice example to get you started", type: "trial", condition: "trial"})
-	words_collection.add(words_trial_model)
-	for (var i = 0; i < 5; i++) {
-		words_collection.add({id: i + 1, stimuli: rawSentencesA[i], type: "sentence", condition: "A"});
-		words_collection.add({id: i + 6, stimuli: rawWordsA[i], type: "words", condition: "A"});
-	}
+	createWordsTrials();
+	createDualTaskTrials();
 	create_instructions();
-	create_practice_nback();
 	//define and start the router
 	window.router = new ExperimentRouter();
 	Backbone.history.start();
 	// router.navigate('answer/0', {trigger: true});
-	router.navigate("instructions", {trigger: true});
+	router.navigate("debug", {trigger: true});
 
 	//set up some models for the stimuli
 });
 
+var createWordsTrials = function() {
+	window.words_collection = new WordTrialsCollection();
+	words_trial_model = new WordsTrialModel({id: 0, stimuli: "This is a practice example to get you started", type: "trial", condition: "trial"})
+	words_collection.add(words_trial_model)
+	for (var i = 0; i < 5; i++) {
+		words_collection.add({id: i + 1, stimuli: rawSentencesA[i], type: "single_task", condition: "A"});
+		words_collection.add({id: i + 6, stimuli: rawWordsA[i], type: "single_task", condition: "A"});
+	}
+};
+
+var createDualTaskTrials = function() {
+	window.dual_task_trials = new DualTaskTrialCollection();
+	for (var i = 0; i < 5; i++) {
+		dual_task_trials.add({id: i, words_stimuli: rawSentencesA[i], nback_length: 10, type: "dual_task"});
+	}
+};
+
 var create_instructions = function() {
 	window.instructions_collection = new InstructionsCollection();
 	introduction_1 = new InstructionsModel({id: 0, last: false, section: 1, img: '', text: `
-		<p>Hello and weclome to the experiment</p>
+		<p>Hello and welcome to the experiment</p>
 		<p>The purpose of this experiment is to learn more about how people remember written information under different conditions</p>
 		<p>In the first half of this experiment you will be shown a series of 6-12 words, one by one. Your job will be to remember them as best you can,
 		then type them into the answer page that will be presented at the end of the trial. You will complete this 10 times</p>
@@ -82,10 +103,18 @@ var create_instructions = function() {
 
 };
 
-var create_practice_nback = function(){
-	window.nback_practice_collection = new NBackTrialCollection({session_accuracy: 0});
-	var nback_prac1 = new NBackTrialModel({id: 0, length: 10});
-	var nback_prac2 = new NBackTrialModel({id: 1, length: 10});
-	var nback_prac3 = new NBackTrialModel({id: 2, length: 10});
-	nback_practice_collection.add([nback_prac1, nback_prac2, nback_prac3])
+var create_nback_sounds = function(){
+	var path = 'static/audio/TheAlphabet/'
+	window.nback_sounds = [
+		new Howl({urls: [path + 'A.wav']}),
+		new Howl({urls: [path + 'B.wav']}),
+		new Howl({urls: [path + 'C.wav']}),
+		new Howl({urls: [path + 'D.wav']}),
+		new Howl({urls: [path + 'E.wav']}),
+		new Howl({urls: [path + 'F.wav']}),
+		new Howl({urls: [path + 'G.wav']}),
+		new Howl({urls: [path + 'H.wav']}),
+		new Howl({urls: [path + 'I.wav']}),
+		new Howl({urls: [path + 'J.wav']})
+	];
 }

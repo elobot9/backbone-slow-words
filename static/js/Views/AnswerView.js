@@ -44,15 +44,20 @@ var AnswerView = Backbone.View.extend({
   },
 
   nextTrial: function(){
-    if (this.model.get('id') == 0){
-      router.navigate("instructions/" + 7, {trigger: true})
+    if (this.model.get('type') == 'single_task') {
+      if (this.model.get('id') == 0){
+        router.navigate("instructions/" + 7, {trigger: true})
+      }
+      else if (this.model.get('id') == 10) {
+        //go to the post questionnaire
+        router.navigate("nbackinstructions", {trigger: true})
+      }
+      else{
+        router.navigate("basicexperiment/" + (this.model.get("id") + 1), {trigger: true})
+      }
     }
-    else if (this.model.get('id') == 10) {
-      //go to the post questionnaire
-      router.navigate("nbackinstructions", {trigger: true})
+    else if (this.model.get('type') == 'dual_task') {
+      router.navigate('dualtaskexperiment/' + (this.model.get('id') + 1), {trigger: true})
     }
-    else{
-      router.navigate("basicexperiment/" + (this.model.get("id") + 1), {trigger: true})
-          }
   }
 });

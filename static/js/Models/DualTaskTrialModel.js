@@ -1,15 +1,15 @@
-var NBackTrialModel = Backbone.Model.extend({
+var DualTaskTrialModel = Backbone.Model.extend({
 	initialize: function(){
-		this.set('stimuli', new NBackStimuliCollection())
+		this.set('nback_stimuli', new NBackStimuliCollection())
 		this.populateStimuliCollection();
 	},
 
 	populateStimuliCollection: function() {
 		var one_back = null
-		for (var i = 0; i < this.get('length'); i++){
+		for (var i = 0; i < this.get('nback_length'); i++){
 			stimuli_id = Math.floor(Math.random() * 3);
 			var answer = null;
-			if (this.get('stimuli').get(i - 1) != undefined && this.get('stimuli').get(i - 1).get('stimuli_id') == stimuli_id){
+			if (this.get('nback_stimuli').get(i - 1) != undefined && this.get('nback_stimuli').get(i - 1).get('stimuli_id') == stimuli_id){
 				//same stimuli as one back
 				answer = true;
 			}
@@ -17,7 +17,7 @@ var NBackTrialModel = Backbone.Model.extend({
 				answer = false;
 			}
 			stimuli_model = new NBackStimuliModel({id: i, stimuli_id: stimuli_id, correct_answer: answer});
-			this.get('stimuli').add(stimuli_model);
+			this.get('nback_stimuli').add(stimuli_model);
 		}
 	},
 
@@ -30,7 +30,11 @@ var NBackTrialModel = Backbone.Model.extend({
 					}
 				}
 			)
-		return (correct / this.get('stimuli').length) * 100;
-	}	
-});
+		return (correct / this.get('nback_stimuli').length) * 100;
+	},
 
+	wordsStimuliArray: function(){
+		return this.get('words_stimuli').split(" ");
+	}
+
+});

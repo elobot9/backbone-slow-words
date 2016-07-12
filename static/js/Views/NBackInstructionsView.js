@@ -32,7 +32,7 @@ var NBackInstructionsView = Backbone.View.extend({
 
   endInstructions: function() {
     this.remove()
-    router.navigate("nbacktrial", {trigger: true});
+    router.navigate("nbackpractice", {trigger: true});
   },
 
 });

@@ -85,9 +85,10 @@ h1 {
   width: 450px;
 }
 
-#main-container button {
+/*#main-container button {
   float:right;
 }
+*/
 
 .answer-container textarea {
   width: 100%;
@@ -119,3 +120,7 @@ h1 {
   font-size: 50px;
 }
 
+.debug button {
+  width: 200px;
+  margin: 10px;
+}
