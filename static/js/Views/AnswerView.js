@@ -12,7 +12,7 @@ var AnswerView = Backbone.View.extend({
 
   events: {
     "click .button-submit": "submitAnswer",
-    "keypress #answer": "handleKeyPress"
+    "keydown #answer": "handleKeyPress"
   },
 
   initialize: function(){
@@ -24,6 +24,7 @@ var AnswerView = Backbone.View.extend({
   },
 
   handleKeyPress: function(e){
+    console.log(e.keyCode)
     if (e.keyCode == 32) { //we want to clear the word, to make it more like spoken answer task
       e.preventDefault();
       if (this.model.get('answer') != undefined){

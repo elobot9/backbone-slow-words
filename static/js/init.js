@@ -44,17 +44,18 @@ var createWordsTrials = function() {
 	words_trial_model = new WordsTrialModel({id: 0, stimuli: "This is a practice example to get you started", type: "single_task", condition: "trial"})
 	words_collection.add(words_trial_model)
 	for (var i = 0; i < 5; i++) {
-		words_collection.add({id: i + 1, stimuli: rawSentencesA[i], type: "single_task", condition: "A"});
-		words_collection.add({id: i + 6, stimuli: rawWordsA[i], type: "single_task", condition: "A"});
+		words_collection.add({id: i + 1, stimuli: rawSentencesA[i], type: "single_task", stim_type: "sentence"});
+		words_collection.add({id: i + 6, stimuli: rawWordsA[i], type: "single_task", stim_stype: "words"});
 	}
 };
 
 var createDualTaskTrials = function() {
 	window.dual_task_trials = new DualTaskTrialCollection();
 	for (var i = 0; i < 5; i++) {
-		dual_task_trials.add({id: i, words_stimuli: rawSentencesA[i], type: "dual_task"});
-		dual_task_trials.add({id: i + 6, words_stimuli: rawWordsA[i], type: "dual_task"})
+		dual_task_trials.add({id: i, words_stimuli: rawSentencesA[i], type: "dual_task", stim_type: "sentence"});
+		dual_task_trials.add({id: i + 5, words_stimuli: rawWordsA[i], type: "dual_task", stim_type: "words"})
 	}
+	console.log(dual_task_trials.pluck('id'))
 };
 
 var create_instructions = function() {

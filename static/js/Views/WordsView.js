@@ -2,7 +2,6 @@ var WordsView = Backbone.View.extend({
 	template: _.template(`
 	<div id="container-exp">
 		<div class="trial">
-			<h1></h1>
 			<div id="text-here"><%= word %></div>
 		</div>
 	</div>`),
