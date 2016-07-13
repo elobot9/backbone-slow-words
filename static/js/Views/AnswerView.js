@@ -57,7 +57,7 @@ var AnswerView = Backbone.View.extend({
       }
     }
     else if (this.model.get('type') == 'dual_task') {
-      router.navigate('dualtaskexperiment/' + (this.model.get('id') + 1), {trigger: true})
+      router.navigate('dualtaskfeedback/' + (this.model.get('id')), {trigger: true})
     }
   }
 });

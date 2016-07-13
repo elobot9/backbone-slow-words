@@ -16,6 +16,8 @@ var ExperimentRouter = Backbone.Router.extend({
     "dualtaskexperiment/:id": "dualTaskExperiment",
     "dualtaskanswer":        "dualTaskAnswer",
     "dualtaskanswer/:id":    "dualTaskAnswer",
+    "dualtaskfeedback":        "dualTaskFeedback",
+    "dualtaskfeedback/:id":    "dualTaskFeedback",
     "memorytest":            "memorytest",
     "postquestionnaire":     "postquestionnaire",
     "debug": "debug"
@@ -118,7 +120,21 @@ var ExperimentRouter = Backbone.Router.extend({
     $('#answer').focus();
   },
 
+  dualTaskFeedback: function(id){
+    console.log('dualTaskFeedback')
+    var model;
+    if (id != undefined){
+      model = dual_task_trials.get(id);
+    }
+    else {
+      model = dual_task_trials.get(0);
+    }
+    var view = new DualTaskFeedbackView({model: model});
+    $('#main-container').html(view.render().el);
+  },
+
   memorytest: function(){
+    console.log('MemoryTest')
     var view = new MemoryTestView();
     $('#main-container').html(view.render().el)
   },

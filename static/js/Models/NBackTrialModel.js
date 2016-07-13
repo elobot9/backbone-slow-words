@@ -30,7 +30,7 @@ var NBackTrialModel = Backbone.Model.extend({
 					}
 				}
 			)
-		return (correct / this.get('stimuli').length) * 100;
+		return Math.floor((correct / this.get('stimuli').length) * 100);
 	}	
 });
 

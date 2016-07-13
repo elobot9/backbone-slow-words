@@ -26,14 +26,14 @@ var DualTaskTrialModel = Backbone.Model.extend({
 
 	percentCorrect: function() {
 		var correct = 0;
-		this.get('stimuli').each(
+		this.get('nback_stimuli').each(
 				function(stimuli) {
 					if (stimuli.correct()){
 						correct++;
 					}
 				}
 			)
-		return (correct / this.get('nback_stimuli').length) * 100;
+		return Math.floor((correct / this.get('nback_stimuli').length) * 100);
 	},
 
 	wordsStimuliArray: function(){
