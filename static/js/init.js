@@ -52,7 +52,8 @@ var createWordsTrials = function() {
 var createDualTaskTrials = function() {
 	window.dual_task_trials = new DualTaskTrialCollection();
 	for (var i = 0; i < 5; i++) {
-		dual_task_trials.add({id: i, words_stimuli: rawSentencesA[i], nback_length: 10, type: "dual_task"});
+		dual_task_trials.add({id: i, words_stimuli: rawSentencesA[i], type: "dual_task"});
+		dual_task_trials.add({id: i + 6, words_stimuli: rawWordsA[i], type: "dual_task"})
 	}
 };
 

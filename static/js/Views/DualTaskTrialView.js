@@ -2,7 +2,7 @@ var DualTaskTrialView = Backbone.View.extend({
 	template: _.template(`
 	<div id="container-exp">
 		<div class="trial">
-			<div id="word_stimuli"><%= word %></div>
+			<div id="text-here"><%= word %></div>
 		</div>
 	</div>`),
 
@@ -51,7 +51,7 @@ var DualTaskTrialView = Backbone.View.extend({
 	playWordsStimuli: function() {
 		var _this = this;
 		if (this.current_words_stimuli < this.model.wordsStimuliArray().length) {
-			$("#word_stimuli").text(this.model.wordsStimuliArray()[this.current_words_stimuli])
+			$("#text-here").text(this.model.wordsStimuliArray()[this.current_words_stimuli])
 			setTimeout(function() {
 				_this.current_words_stimuli++;
 				_this.playWordsStimuli();
