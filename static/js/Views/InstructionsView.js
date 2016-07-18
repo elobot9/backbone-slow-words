@@ -37,6 +37,15 @@ var InstructionsView = Backbone.View.extend({
       else if(this.model.get('section') == 3){
         router.navigate("basicexperiment/1", {trigger: true})
       }
+      else if(this.model.get('section') == 4){
+        router.navigate("nbackpractice", {trigger: true})
+      }
+      else if(this.model.get('section') == 5){
+        router.navigate("dualtaskexperiment", {trigger: true})
+      }
+      else if(this.model.get('section') == 6){
+        router.navigate('memorytest', {trigger: true})
+      }
     }
     else {
       router.navigate('instructions/' + (this.model.get('id') + 1), {trigger: true});

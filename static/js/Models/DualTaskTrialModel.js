@@ -1,6 +1,5 @@
 var DualTaskTrialModel = Backbone.Model.extend({
 	initialize: function(attributes, options){
-		console.log(attributes)
 		this.set('words_stimuli', attributes.words_stimuli)
 		this.set('nback_stimuli', new NBackStimuliCollection());
 		this.populateStimuliCollection();

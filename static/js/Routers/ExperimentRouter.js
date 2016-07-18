@@ -4,6 +4,7 @@ var ExperimentRouter = Backbone.Router.extend({
     "instructions":          "instructions",
     "instructions/:id":      "instructions",
     "audiocaptcha":          "audiocaptcha", 
+    "audiocaptcha/:id":      "audiocaptcha", 
     "basicexperiment":       "basicexperiment",
     "basicexperiment/:id":   "basicexperiment",
     "answer":                "answer",
@@ -37,7 +38,8 @@ var ExperimentRouter = Backbone.Router.extend({
   },
 
   audiocaptcha: function(){
-    var view = new AudioCaptchaView();
+    var captcha_model = new AudioCaptchaModel();
+    var view = new AudioCaptchaView({model: captcha_model});
     $('#main-container').html(view.render().el)
   },
 

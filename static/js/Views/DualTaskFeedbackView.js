@@ -8,7 +8,7 @@ var DualTaskFeedbackView = Backbone.View.extend({
 		console.log(this.model.get('id'))
 		var next_path
 		if (this.model.get('id') == dual_task_trials.length - 1){
-			next_path = "#memorytest"
+			next_path = "#instructions/12"
 		}
 		else {
 			next_path = "#dualtaskexperiment/" + (this.model.get('id') + 1)

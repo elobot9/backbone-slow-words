@@ -47,11 +47,11 @@ var AnswerView = Backbone.View.extend({
   nextTrial: function(){
     if (this.model.get('type') == 'single_task') {
       if (this.model.get('id') == 0){
-        router.navigate("instructions/" + 7, {trigger: true})
+        router.navigate("instructions/" + 8, {trigger: true})
       }
       else if (this.model.get('id') == 10) {
         //go to the post questionnaire
-        router.navigate("nbackinstructions", {trigger: true})
+        router.navigate("instructions/" + 9, {trigger: true})
       }
       else{
         router.navigate("basicexperiment/" + (this.model.get("id") + 1), {trigger: true})

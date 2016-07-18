@@ -1,6 +1,30 @@
 var MemoryTestView = Backbone.View.extend({
   template: _.template(`
-    <div><%= instruction %></div>
+    <h2>Please type all that you can remember from each trial into these boxes.</h2>
+    <div id= 'left_mem_test'>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    </div>
+    <div id= 'right_mem_test'>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    <input type="text" name='memory_test' id='memory_test'><br>
+    </div>
     <div>
       <button type='button' id='next' value='next' class='btn btn-primary btn-lg button-submit'>Submit
         <span class='glyphicon glyphicon-arrow-right'></span>
@@ -9,7 +33,7 @@ var MemoryTestView = Backbone.View.extend({
   
   tagName: "div",
 
-  className: "instructions-container",
+  className: "memory-test",
 
   events: {
     "click .button-submit":   "submitMemoryTest",

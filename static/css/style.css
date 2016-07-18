@@ -57,11 +57,11 @@ h1 {
   line-height: 1.1em;
 }
 
-#trial {
+/*#trial {
   margin: 0 auto;
   width: 800px;
   text-align: center;
-}
+}*/
 
 #query {
   color: darkgray;
@@ -82,19 +82,7 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   top: 200px;
-  width: 450px;
-}
-
-/*#main-container button {
-  float:right;
-}
-*/
-
-.answer-container textarea {
-  width: 100%;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 50px;
+  width: 900px;
 }
 
 #text-here {
@@ -103,11 +91,18 @@ h1 {
   text-transform: uppercase;
 }
 
-.answer-container button {
+.answer-container textarea {
   width: 100%;
-  height: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 50px;
 }
 
+.answer-container button {
+  width: 100px;
+  height: 50px;
+  padding: 10px;
+}
 
 #answer {
   padding-top: 50px;
@@ -123,4 +118,27 @@ h1 {
 .debug button {
   width: 200px;
   margin: 10px;
+}
+
+/*Audio Captcha*/
+#captcha_form {
+  align-content: center;
+}
+
+/*Memory Test*/
+#left_mem_test{
+  width: 400px;
+  padding: 10px;
+  float: left;
+}
+
+#right_mem_test{
+  width: 400px;
+  padding: 10px;
+  float: right;
+}
+
+#memory_test {
+  margin-bottom:10px;
+  width: 400px;
 }
