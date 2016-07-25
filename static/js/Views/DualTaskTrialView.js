@@ -10,7 +10,7 @@ var DualTaskTrialView = Backbone.View.extend({
 		this.current_words_stimuli = 0;
 		this.current_nback_stimuli = 0;
 		this.proxy_handle_keypress = $.proxy(this.handleKeyPress, this)
-		$(window).on('keypress', this.proxy_handle_keypress)
+		$(window).on('keydown', this.proxy_handle_keypress)
 	},
 
 	render: function(){
@@ -22,7 +22,7 @@ var DualTaskTrialView = Backbone.View.extend({
 
 	handleKeyPress: function(e){
 		if (e.keyCode == 32) { //space was pressed
-			this.model.get('nback_stimuli').get(this.current_stimuli).set('user_answer', true)
+			this.model.get('nback_stimuli').get(this.current_nback_stimuli).set('user_answer', true)
 		}
 	},
 
@@ -40,7 +40,7 @@ var DualTaskTrialView = Backbone.View.extend({
 				}, 1000);
 		}
 		else {
-			$(window).off('keypress', this.proxy_handle_keypress);
+			$(window).off('keydown', this.proxy_handle_keypress);
 			if (this.isFinished()){
 				this.remove();
 				router.navigate("dualtaskanswer/" + this.model.get('id'), {trigger: true});

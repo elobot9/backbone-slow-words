@@ -49,6 +49,8 @@ var MemoryTestView = Backbone.View.extend({
 
  submitMemoryTest: function() {
     this.remove()
+    saveSingleTaskData();
+    saveDualTaskData();
     router.navigate("postquestionnaire", {trigger: true});
   },
 

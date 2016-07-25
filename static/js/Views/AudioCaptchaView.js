@@ -50,7 +50,7 @@ var AudioCaptchaView = Backbone.View.extend({
     else {
       if (this.iteration == 0) { //this is the first attempt
         this.iteration++;
-        this.$el.html(`You have failed to complete the audio captcha. <br><br> 
+        this.$el.html(`You have failed to complete the audio check. <br><br> 
           Please ensure that the volume on your computer is raised to an audible level.<br>
           If you are using Internet Explorer verion 9.0 or earlier, please switch to a more modern browser.<br>
           If you are not using them already, wearing headphones is advised.<br><br>
@@ -65,7 +65,7 @@ var AudioCaptchaView = Backbone.View.extend({
       }
       else {
         this.$el.html(`
-          You have failed your second chance to complete the audio catpcha.
+          You have failed your second chance to complete the audio check.
           This suggests that your browser or computer are unable to play
           the audio files required for this experiment, so we cannot allow you to proceed.
           `)

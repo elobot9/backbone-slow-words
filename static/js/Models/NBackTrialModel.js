@@ -5,7 +5,6 @@ var NBackTrialModel = Backbone.Model.extend({
 	},
 
 	populateStimuliCollection: function() {
-		var one_back = null
 		for (var i = 0; i < this.get('length'); i++){
 			stimuli_id = Math.floor(Math.random() * 3);
 			var answer = null;
@@ -30,7 +29,8 @@ var NBackTrialModel = Backbone.Model.extend({
 					}
 				}
 			)
-		return Math.floor((correct / this.get('stimuli').length) * 100);
+		var total = this.get('stimuli').length
+		return Math.floor((correct / total) * 100)
 	}	
 });
 

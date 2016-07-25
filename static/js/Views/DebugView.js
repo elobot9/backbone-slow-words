@@ -7,7 +7,7 @@ var DebugView = Backbone.View.extend({
 			<div><button type='button' value='/nbackinstructions' id='' class='btn btn-primary btn-lg'>N-Back Instructions</button></div>
 			<div><button type='button' value='/nbackpractice' id='' class='btn btn-primary btn-lg'>N-Back Practice</button></div>
 			<div><button type='button' value='/dualtaskexperiment' id='' class='btn btn-primary btn-lg'>Dual-Task Experiment</button></div>
-			<div><button type='button' value='/instructions/12' id='' class='btn btn-primary btn-lg'>Memory Test</button></div>
+			<div><button type='button' value='/instructions/11' id='' class='btn btn-primary btn-lg'>Memory Test</button></div>
 		</div>
 	`),
 

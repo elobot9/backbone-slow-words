@@ -10,52 +10,214 @@
         <form id="postquiz" action="debrief" method="post">
 
 
-            <!-- beginning of a question -->
+         <!-- self evaluation start -->
+         <!--Basic Memory Task -->
+         
+
+         <div class = "row question">
+            <div class = "col-md-8">
+            How difficult did you find Part I of the experiment? (The Basic Memory Task)
+            </div>
+            <div class= "col-md-4">
+                <option value="5">Very Difficult</option>
+                <option value="4">Somewhat Difficult</option>
+                <option value="3">Neither Difficult nor Easy</option>
+                <option value="2">Somewhat Easy</option>
+                <option value="1">Very Easy</option>
+            </div>
+         </div>
+
+
+        <div class = "row question">
+            <div class = "col-md-8">
+            How well did you feel you did on Part I of the experiment?
+            </div>
+            <div class= "col-md-4">
+
+            </div>
+         </div>
+
+        <div class = "row question">
+            <div class = "col-md-8">
+            Were the instructions clear for this task? If not, could you suggest how you would improve them?
+            </div>
+            <div class= "col-md-4">
+            <input type='text' id='P1_instructions' size='60' maxlength='400' />
+            </div>
+         </div>
+
+         <div class = "row question">
+            <div class = "col-md-8">
+            Did the practice trial before this task help prepare you for the task itself?
+            </div>
+            <div class= "col-md-4">
+            </div>
+         </div>
+
+        <div class = "row question">
+            <div class = "col-md-8">
+            Given the option, would you prefer to have:
+            </div>
+            <div class= "col-md-4">
+            <!--
+            More practice trials
+            Fewer practice trials
+            The same number of practice trials
+            -->
+            </div>
+         </div>
+
+
+         <!-- Dual Task -->
+
+        <div class = "row question">
+            <div class = "col-md-8">
+            How difficult did you find Part II of the experiment? (Basic Memory + the Repeat Task)
+            </div>
+            <div class= "col-md-4">
+            </div>
+         </div>
+
+
+        <div class = "row question">
+            <div class = "col-md-8">
+            How well did you feel you did on Part II of the experiment?
+            </div>
+            <div class= "col-md-4">
+            </div>
+         </div>
+
+        <div class = "row question">
+            <div class = "col-md-8">
+            Were the instructions clear for Part II of the experiment? If not, could you suggest how you would improve them?
+            </div>
+            <div class= "col-md-4">
+            <input type='text' id='P2_instructions' size='60' maxlength='400' />
+            </div>
+         </div>
+
+         <div class = "row question">
+            <div class = "col-md-8">
+            Did the practice trials before this task help prepare you for the task itself?
+            </div>
+            <div class= "col-md-4">
+            </div>
+         </div>
+
+        <div class = "row question">
+            <div class = "col-md-8">
+            Given the option, would you prefer to have:
+            </div>
+            <div class= "col-md-4">
+            <!--
+            More practice trials
+            Fewer practice trials
+            The same number of practice trials
+            -->
+            </div>
+         </div>
+
+        <div class = "row question">
+            <div class = "col-md-8">
+            In Part II of the experiment, did you find yourself to be more accurate on:
+            </div>
+            <div class= "col-md-4">
+            <!--
+            The repeat task
+            The memory task
+            Equally accurate on both tasks
+             -->
+            </div>
+         </div>
+
+         <div class = "row question">
+            <div class = "col-md-8">
+            In Part II of the experiment, did you ever find yourself neglecting one task so that you could perform better on the other one? If so, which task did you neglect the most?
+            </div>
+            <div class= "col-md-4">
+            <!--
+            I did not neglect either task
+            I neglected the repeat task more
+            I neglected the memory task more
+            I neglected both tasks equally at different times
+             -->
+            </div>
+         </div>
+         <!-- Dual Task End -->
+
+         <!--self evaluation end --> 
+
+        <!-- Demographic Info -->
+        <!-- beginning of a question -->
             <div class="row question">
-                <div class="col-md-8">
-                    On a scale of 1-10 (where 10 is the most engaged), please rate how <b>ENGAGING</b> you found the learning task:
-                </div>
                 <div class="col-md-4">
-                    <select id="engagement" name="engagement">
-                        <option value="10">10 - Very engaging</option>
-                        <option value="9">9</option>
-                        <option value="8">8</option>
-                        <option value="7">7</option>
-                        <option value="6">6</option>
-                        <option value="5" SELECTED>5 - Moderately</option>
-                        <option value="4">4</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0 - Not engaged</option>
-                    </select>
+                    Have you encountered an experiment like this before? If so, please briefly describe.
+                </div>
+                <div class="col-md-8">
+                    <input type='text' id='Q2_prevExp' size='60' maxlength='400' />
                 </div>
             </div>
             <!-- end of a question -->
 
-
-            <!-- beginning of a question -->
-            <div class="row question">
-                <div class="col-md-8">
-                    On a scale of 1-10 (where 10 is the most difficult), please rate how <b>DIFFICULT</b> you found the learning task:
-                </div>
+        <div class="row question">
                 <div class="col-md-4">
-                    <select id="difficulty" name="difficulty">
-                        <option value="10">10 - Very difficult</option>
-                        <option value="9">9</option>
-                        <option value="8">8</option>
-                        <option value="7">7</option>
-                        <option value="6">6</option>
-                        <option value="5" SELECTED>5 - Moderately difficult</option>
-                        <option value="4">4</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0 - Not difficult at all</option>
-                    </select>
+                    Please select your age group.   
+                </div>
+                <div class="col-md-8">                    
+            <select name="ageGroup" id="ageGroup" >
+            <option style="padding-left:0px;" value="">Select your Age Group</option>
+            <option value="19-">19-</option>
+            <option value="20-24">20-24</option>
+            <option value="25-29">25-29</option>
+            <option value="30-34">30-34</option>
+            <option value="35-39">35-39</option>
+            <option value="40-44">40-44</option>
+            <option value="45-49">45-49</option>
+            <option value="50-54">50-54</option>
+            <option value="55-59">55-59</option>
+            <option value="60-64">60-64</option>
+            <option value="65-69">65-69</option>
+            <option value="70-74">70-74</option>    
+            <option value="75-79">75-79</option>
+            <option value="80-84">80-84</option>
+            <option value="85+">85+</option>    
+            </select>
                 </div>
             </div>
-            <!-- end of a question -->
+        <div class="row question">
+                <div class="col-md-4">
+                    Please select your gender.
+                </div>
+                <div class="col-md-8">
+            <select name="gender" id="gender" >
+            <option style="padding-left:0px;" value="">Select your Gender</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            </select>
+                </div>
+            </div>
+        <div class="row question">
+                <div class="col-md-4">
+                    Please select your dominant hand (i.e. Are you left or right handed?).
+                </div>
+                <div class="col-md-8">
+            <select name="handedness" id="handedness" >
+            <option style="padding-left:0px;" value="">Select your Handedness</option>
+            <option value="Right">Right</option>
+            <option value="Left">Left</option>
+            </select>
+                </div>
+            </div>
+        <div class="row question">
+                <div class="col-md-4">
+                    What languages did you speak before age 6? What languages do you speak fluently now?
+                </div>
+                <div class="col-md-8">
+                    <input type='text' id='language' size='60' maxlength='400' />
+                </div>
+</div>
+
+
         </form>
     </div>
 

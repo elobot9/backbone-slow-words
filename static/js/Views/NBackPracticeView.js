@@ -10,7 +10,7 @@ var NBackPracticeView = Backbone.View.extend({
 		this.current_stimuli = 0;
 		// $(window).on('keypress', {_this: this}, this.handleKeyPress)
 		this.proxy_handle_keypress = $.proxy(this.handleKeyPress, this)
-		$(window).on('keypress', this.proxy_handle_keypress)
+		$(window).on('keydown', this.proxy_handle_keypress)
 	},
 
 	render: function(){
@@ -39,7 +39,7 @@ var NBackPracticeView = Backbone.View.extend({
 				}, 1000);
 		}
 		else {
-			$(window).off('keypress', this.proxy_handle_keypress);
+			$(window).off('keydown', this.proxy_handle_keypress);
 			this.remove();
 			router.navigate('nbackfeedback', {trigger: true});
 		}

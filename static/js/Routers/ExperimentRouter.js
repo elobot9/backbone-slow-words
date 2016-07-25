@@ -21,6 +21,7 @@ var ExperimentRouter = Backbone.Router.extend({
     "dualtaskfeedback/:id":    "dualTaskFeedback",
     "memorytest":            "memorytest",
     "postquestionnaire":     "postquestionnaire",
+    "debrief":                "debrief", 
     "debug": "debug"
   },
 
@@ -143,6 +144,11 @@ var ExperimentRouter = Backbone.Router.extend({
 
   postquestionnaire: function(){
     var view = new PostQuestionnaireView();
+    $('#main-container').html(view.render().el)
+  },
+
+  debrief: function(){
+    var view = new DebriefView();
     $('#main-container').html(view.render().el)
   },
 

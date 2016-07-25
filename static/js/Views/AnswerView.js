@@ -24,7 +24,6 @@ var AnswerView = Backbone.View.extend({
   },
 
   handleKeyPress: function(e){
-    console.log(e.keyCode)
     if (e.keyCode == 32) { //we want to clear the word, to make it more like spoken answer task
       e.preventDefault();
       if (this.model.get('answer') != undefined){
@@ -40,18 +39,17 @@ var AnswerView = Backbone.View.extend({
   submitAnswer: function() {
     //do some sort of psiTurk record trial data here?
     this.model.set('answer', this.model.get('answer') + " " + this.$('#answer').val()); //log what word was in the input one more time
-    psiTurk.recordTrialData([this.model.get('stimuli'), this.model.get('answer'), this.model.get('type'), this.model.get('condition')])
+    // psiTurk.recordTrialData([this.model.get('stimuli'), this.model.get('answer'), this.model.get('type'), this.model.get('condition')])
     this.nextTrial();
   },
 
   nextTrial: function(){
     if (this.model.get('type') == 'single_task') {
       if (this.model.get('id') == 0){
-        router.navigate("instructions/" + 8, {trigger: true})
+        router.navigate("instructions/" + 7, {trigger: true})
       }
       else if (this.model.get('id') == 10) {
-        //go to the post questionnaire
-        router.navigate("instructions/" + 9, {trigger: true})
+        router.navigate("instructions/" + 8, {trigger: true})
       }
       else{
         router.navigate("basicexperiment/" + (this.model.get("id") + 1), {trigger: true})
