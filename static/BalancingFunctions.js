@@ -100,8 +100,27 @@ var pruneBigShuffle = function(big_array){
 		}
 	}
 	return big_array
+};
+
+var printBigArray = function(big_array){
+	var new_big_array = new Array();
+	for(var i = 0; i < big_array.length; i++){
+		var string_array = new Array();
+		for (var j = 0; j < big_array[i].length; j++){
+			string_array.push("'"+big_array[i][j].stim + "'")
+		};
+		new_big_array.push("[" + string_array + "]")
+	};
+	return new_big_array
 }
 
+var basicStrip = function(object_array){
+	var string_array = new Array();
+	for(var i = 0; i < object_array.length; i++){
+		string_array.push(object_array[i].stim)
+	}
+	return string_array
+}
 
 
 

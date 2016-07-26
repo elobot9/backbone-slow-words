@@ -162,4 +162,20 @@ var create_nback_sounds = function(){
 		 new Howl({urls: [path + 'I.wav']}),
 		 new Howl({urls: [path + 'J.wav']})
 	];
+};
+
+var findBlock = function(){
+	var random_num = Math.floor(Math.random() * 2)
+	if (random_num == 0){
+		return true
+	}
+	else{
+		return false
+	}
+};
+
+var assignBlock = function(){
+	if(findBlock()){
+		
+	}
 }
