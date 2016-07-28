@@ -5,8 +5,8 @@ var saveSingleTaskData = function(){
 		exp1_data.push(singletask_collection.get('answer'))
 	}
 	console.log(exp1_data)
-	psiTurk.recordTrialData(exp1_data);
-	psiTurk.saveData()
+	psiturk.recordTrialData(exp1_data);
+	psiturk.saveData()
 }
 
 var saveDualTaskData = function(){
@@ -18,7 +18,7 @@ var saveDualTaskData = function(){
 		exp2_data.push("nback accuracy = " + nback_accuracy + " remembered words = " + words_response);
 	}
 	console.log(exp2_data);
-	psiTurk.recordTrialData(exp2_data);
-	psiTurk.saveData()
+	psiturk.recordTrialData(exp2_data);
+	psiturk.saveData()
 
 }

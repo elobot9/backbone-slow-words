@@ -112,7 +112,7 @@ var printBigArray = function(big_array){
 		new_big_array.push("[" + string_array + "]")
 	};
 	return new_big_array
-}
+};
 
 var basicStrip = function(object_array){
 	var string_array = new Array();
@@ -120,7 +120,65 @@ var basicStrip = function(object_array){
 		string_array.push(object_array[i].stim)
 	}
 	return string_array
+};
+
+//Balance the nback
+var bigNBackShuffle = function(length){
+	var big_array = new Array();
+	for(var i = 0; i < 400; i++){
+		var nback_candidate = new Array();
+		for (var j = 0; j < length; j++){
+			var element = Math.floor(Math.random()*11)
+			nback_candidate.push(element)
+		}
+		big_array.push(nback_candidate)
+	}
+	return big_array
+};
+
+var enoughRepeats = function(array, repeats, counter, index){
+	if (counter == undefined){
+		counter = 0
+	}
+	else if (counter > repeats){
+		return false
+	};
+
+	if (index == undefined){
+		index = 1
+	}
+	else if(index == array.length){
+		if(repeats == counter){
+			return true
+		}
+		else{
+			return false
+		}
+	}
+	else{
+		if (array[index] === array[index - 1]){
+			var this_array = array
+			return enoughRepeats(this_array, repeats, counter + 1, index + 1)
+		}
+		else{
+			var this_array = array
+			return enoughRepeats(this_array, repeats, counter, index + 1)
+		}
+	}
+
+};
+
+var pruneByRepeats = function(big_array, repeats){
+	for (var i = 0; i < big_array.length; i++){
+		if (! enoughRepeats(big_array[i], repeats)){
+			big_array.splice(i, 1)
+		}
+	}
+	return big_array
 }
+
+
+
 
 
 

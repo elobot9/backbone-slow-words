@@ -28,18 +28,24 @@ var AnswerView = Backbone.View.extend({
       e.preventDefault();
       if (this.model.get('answer') != undefined){
         this.model.set('answer', this.model.get('answer') + " " + this.$('#answer').val()); //log what word was in the input
+        var data = this.$('#answer').val()
+        psiturk.recordTrialData([data])
       }
       else {
         this.model.set('answer', this.$('#answer').val());
       }
       this.$('#answer').val('') //clear the textarea
     }
+    else if (e.keyCode == 8){
+      psiturk.recordTrialData(['backspace'])
+    }
   },
 
   submitAnswer: function() {
     //do some sort of psiTurk record trial data here?
     this.model.set('answer', this.model.get('answer') + " " + this.$('#answer').val()); //log what word was in the input one more time
-    // psiTurk.recordTrialData([this.model.get('stimuli'), this.model.get('answer'), this.model.get('type'), this.model.get('condition')])
+    // psiturk.recordTrialData([this.model.get('stimuli'), this.model.get('answer'), this.model.get('type'), this.model.get('condition')])
+    psiturk.saveData();
     this.nextTrial();
   },
 

@@ -27,6 +27,7 @@ var mycounterbalance = counterbalance;  // they tell you which condition you hav
 $(window).load( function(){
 	create_nback_sounds();
 	//initialize models for trials
+	window.blocks = assignBlocks();
 	createWordsTrials();
 	createDualTaskTrials();
 	create_instructions();
@@ -43,15 +44,17 @@ var createWordsTrials = function() {
 	window.words_collection = new WordTrialsCollection();
 	words_trial_model = new WordsTrialModel({id: 0, stimuli: "This is a practice example to get you started", type: "single_task", condition: "trial"})
 	words_collection.add(words_trial_model)
+	var words_pool = blocks[0]
 	for (var i = 0; i < 10; i++) {
-		words_collection.add({id: i + 1, stimuli: conA_groupA[i].stim, type: "single_task", stim_type: "coherent"});
+		words_collection.add({id: i + 1, stimuli: words_pool[i], type: "single_task", stim_type: "coherent"});
 		}
 };
 
 var createDualTaskTrials = function() {
 	window.dual_task_trials = new DualTaskTrialCollection();
+	var words_pool = blocks[1]
 	for (var i = 0; i < 10; i++) {
-		dual_task_trials.add({id: i, words_stimuli: conA_groupB[i].stim, type: "dual_task", stim_type: "coherent"});
+		dual_task_trials.add({id: i, words_stimuli: words_pool[i], type: "dual_task", stim_type: "coherent"});
 	}
 };
 
@@ -164,18 +167,10 @@ var create_nback_sounds = function(){
 	];
 };
 
-var findBlock = function(){
-	var random_num = Math.floor(Math.random() * 2)
-	if (random_num == 0){
-		return true
-	}
-	else{
-		return false
-	}
-};
-
-var assignBlock = function(){
-	if(findBlock()){
-		
-	}
+var assignBlocks = function(){
+	var single = Math.floor(Math.random() * 2);
+	var double = !single;
+	var index_1 = Math.floor(Math.random() * (pool_A[single].length) - 1);
+	var index_2 = Math.floor(Math.random() * (pool_A[Number(double)].length) - 1);
+	return [pool_A[single][index_1], pool_A[Number(double)][index_2]]
 }
