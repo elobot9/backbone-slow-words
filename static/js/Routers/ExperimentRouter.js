@@ -8,7 +8,7 @@ var ExperimentRouter = Backbone.Router.extend({
     "basicexperiment":       "basicexperiment",
     "basicexperiment/:id":   "basicexperiment",
     "answer":                "answer",
-    "answer/:id":            "answer",
+    "answer/:id":             "answer",
     "nbackinstructions":     "nbackinstructions",
     "nbackpractice":         "nbackpractice",
     "nbackfeedback":         "nbackfeedback",
@@ -22,7 +22,8 @@ var ExperimentRouter = Backbone.Router.extend({
     "memorytest":            "memorytest",
     "postquestionnaire":     "postquestionnaire",
     "debrief":                "debrief", 
-    "debug": "debug"
+    "debug":                  "debug", 
+    "end":                    "end" 
   },
 
   instructions: function(id) {
@@ -61,14 +62,14 @@ var ExperimentRouter = Backbone.Router.extend({
 
   //Show answer page for words trial with this id
   answer: function(id){
-    var words_model;
+    var stim_model;
     if (id != undefined){
-      words_model = words_collection.get(id);
+        stim_model = words_collection.get(id);
     }
     else {
-      words_model = words_collection.get(0);
+      stim_model = words_collection.get(0);
     }
-    var view = new AnswerView({model: words_model});
+    var view = new AnswerView({model: stim_model});
     $('#main-container').html(view.render().el);
     $('#answer').focus();
   },
@@ -149,6 +150,11 @@ var ExperimentRouter = Backbone.Router.extend({
 
   debrief: function(){
     var view = new DebriefView();
+    $('#main-container').html(view.render().el)
+  },
+
+  end: function(){
+    var view = new EndView();
     $('#main-container').html(view.render().el)
   },
 

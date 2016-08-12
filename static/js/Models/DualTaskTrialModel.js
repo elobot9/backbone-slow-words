@@ -23,6 +23,22 @@ var DualTaskTrialModel = Backbone.Model.extend({
 		}
 	},
 
+	repeatsCaught: function(){
+		var total_repeats = 0
+		var caught_repeats = 0
+		this.get('nback_stimuli').each(
+			function(stimuli){
+				if(stimuli.repeatCorrect()!=undefined){
+					total_repeats++;
+					if(stimuli.repeatCorrect()){
+						caught_repeats++
+					}
+				}
+			}
+		)
+		return [caught_repeats, total_repeats]
+	},
+
 	percentCorrect: function() {
 		var correct = 0;
 		this.get('nback_stimuli').each(

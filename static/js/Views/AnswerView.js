@@ -20,6 +20,7 @@ var AnswerView = Backbone.View.extend({
 
   render: function(){
     this.$el.html(this.template());
+    psiTurk.recordTrialData(['start', moment().format('HH mm ss SSS')])
     return this
   },
 
@@ -28,24 +29,33 @@ var AnswerView = Backbone.View.extend({
       e.preventDefault();
       if (this.model.get('answer') != undefined){
         this.model.set('answer', this.model.get('answer') + " " + this.$('#answer').val()); //log what word was in the input
-        var data = this.$('#answer').val()
-        psiturk.recordTrialData([data])
       }
       else {
         this.model.set('answer', this.$('#answer').val());
       }
+      var data = this.$('#answer').val();
+      if (this.model.get('timed_response') == undefined){
+          this.model.set('timed_response', [{type: 'recall', response: data, time: moment().format('HH mm ss SSS')}])
+      }
+      else{
+        this.model.get('timed_response').push({type: 'recall', response: data, time: moment().format('HH mm ss SSS')})
+      }
       this.$('#answer').val('') //clear the textarea
     }
     else if (e.keyCode == 8){
-      psiturk.recordTrialData(['backspace'])
+      if(this.model.get('timed_response') == undefined){
+        this.model.set('timed_response', [{type: 'recall', reponse: 'backspace', time: moment().format('HH mm ss SSS')}])
+      }
+      else{
+        this.model.get('timed_response').push({type: 'recall', response: 'backspace', time: moment().format('HH mm ss SSS')})
     }
+  }
   },
 
   submitAnswer: function() {
-    //do some sort of psiTurk record trial data here?
     this.model.set('answer', this.model.get('answer') + " " + this.$('#answer').val()); //log what word was in the input one more time
-    // psiturk.recordTrialData([this.model.get('stimuli'), this.model.get('answer'), this.model.get('type'), this.model.get('condition')])
-    psiturk.saveData();
+    psiTurk.recordTrialData(this.model.get('timed_response'))
+    psiTurk.saveData()
     this.nextTrial();
   },
 

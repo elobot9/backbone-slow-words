@@ -1,6 +1,14 @@
 var AudioCaptchaView = Backbone.View.extend({
   template: _.template(`
-    <div class="instruction"><%= instruction %></div>
+
+    
+        <div id="container-instructions">
+
+  <hr />
+
+  <div class="instructions well">
+
+    <%= instruction %></div>
     <% if (show_form == true) { %>
       <button class="btn btn-primary btn-lg captcha-replay">Play Audio</button>
       <div id=captcha_form>
@@ -15,6 +23,15 @@ var AudioCaptchaView = Backbone.View.extend({
         <input type="radio" name="captcha" value="I"> I </input><br>
         <input type="radio" name="captcha" value="J"> J </input><br>
       </div>
+
+      <script type="text/javascript">
+      //console.log(psiTurk.getInstructionIndicator())
+      </script>
+
+  </div>
+
+  <hr />
+
     <% } %>
     `),
   
@@ -45,7 +62,7 @@ var AudioCaptchaView = Backbone.View.extend({
  submitAudioCaptcha: function(e) {
     var user_answer = e.target.value
     if(user_answer == this.model.get('correct_answer')){
-      router.navigate('instructions/' + 3, {trigger: true})
+      router.navigate('instructions/' + 2, {trigger: true})
     }
     else {
       if (this.iteration == 0) { //this is the first attempt

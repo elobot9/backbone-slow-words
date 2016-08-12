@@ -36,7 +36,6 @@ $(window).load( function(){
 	Backbone.history.start();
 	// router.navigate('answer/0', {trigger: true});
 	router.navigate("debug", {trigger: true});
-
 	//set up some models for the stimuli
 });
 
@@ -62,18 +61,18 @@ var create_instructions = function() {
 	window.instructions_collection = new InstructionsCollection();
 	introduction_1 = new InstructionsModel({id: 0, last: false, section: 1, img: '', text: `
 		<h2>Introduction</h2>
-		<p>Hello and welcome to the experiment</p>
-		<p>The purpose of this experiment is to learn more about how people remember written information under different conditions.</p>
-		<p>In the first half of this experiment you will be shown a series of 6-12 words, one by one. Your job will be to remember them as best you can,
-		then type them into the answer page that will be presented at the end of the trial. You will complete this 10 times.</p>
-		<p> In the second half, you will be doing the same thing, but with an added twist. We'll tell you more about this when we get there.</p>
+		<p>Hello and welcome!</p>
+		<p>The purpose of this experiment is to learn more about how people remember sequences of verbal information under different conditions.</p>
+		<p>In the first half of this experiment you will be shown a series of 9-12 words, one by one. Your job will be to remember them as best you can and
+		then type them into the answer page that will be presented at the end of the trial. You will be asked to do this 10 times.</p>
+		<p> In the second half you will be doing the same thing, but with an added twist. We'll tell you more about this when we get there.</p>
 		`});
 
 	introduction_2 = new InstructionsModel({id: 1, last: true, section: 1, img: '', text: `
 		<h2>Audio Check</h3>
-		<p>Before we start, we need to make sure that your browser is able to play audio files, and that your volume and speaker settings allow you to hear them.</p>
-		<p>On the following page, press the "Play" button to hear a letter, then check off the letter you heard. You will only be allowed two tries to complete this test.</p>
-		<p>Before beginning, take the following steps to ensure a greater likelihood of success:
+		<p>Before we start we need to make sure that your browser is able to play audio files, and that your volume and speaker settings allow you to hear them.</p>
+		<p>On the following page press the "Play" button to hear a letter, then check off the letter you heard. You will only be allowed two tries to complete this test.</p>
+		<p>Before beginning take the following steps to ensure a greater likelihood of success:
 		<ul>
 			<li>If you are using an Internet Explorer browser earlier than version 9.0, please switch to a different browser.</li>
 			<li>Turn up the volume on your computer and make sure that your browser volume is not muted.</li>
@@ -87,14 +86,14 @@ var create_instructions = function() {
 		 <p>Click 'Next' for a more detailed overview of the instructions.</p>
 		`})
 	preliminary_word_trial_instructions_2 = new InstructionsModel({id: 3, last: false, section: 2, img: '', text: `
-		<p>A series of words will be shown on screen one at a time</p>`});
+		<p>A series of words will be shown on screen one at a time.</p>`});
 	preliminary_word_trial_instructions_3 = new InstructionsModel({id: 4, last: false, section: 2, img: '', text: `
-		<p>Once a series is complete, you will be asked to type them into an answer page. Do this quickly, and don't worry about typos</p>`});
+		<p>Once a series is complete, you will be asked to type them into an answer page. Do this quickly, and don't worry about typos.</p>`});
 	preliminary_word_trial_instructions_4 = new InstructionsModel({id: 5, last: false, section: 2, img: '', text: `
-		<p>To enter each word into the answer page press the SPACEBAR. Doing this will save the word and erase it from the page so that you can type the next one</p>`});
+		<p>To enter each word into the answer page press the SPACEBAR. Doing this will save the word and erase it from the page so that you can type the next one.</p>`});
 	preliminary_word_trial_instructions_5 = new InstructionsModel({id: 6, last: true, section: 2, img: '', text: `
-		<p>Once you have typed in all of the words you can remember, click the submit button</p>
-		<p>Remember</p>
+		<p>Once you have typed in all of the words you can remember, click the submit button.</p>
+		<p>Remember:</p>
 		<ul>
 			<li>Try to type your answers accurately, but DON'T try to correct typos.</li>
 			<li>Try to type the words in the order they were presented.</li>
@@ -104,8 +103,8 @@ var create_instructions = function() {
 
 	nback_instructions_1 = new InstructionsModel({id: 8, last: false, section: 4, img: '', text: `
 		<h3>Part 2 Instructions</h3>
-		<p>In the next part of the experiment, you wil be doing the same exercise as in the first, only this time it will be accompanied by another exercise called the "Repeat Task".</p>
-		<p>In the Repeat Task, you will hear a series of letters spoken aloud. Your job will be to press the SPACEBAR each time that you hear a letter repeated.</p>
+		<p>In the next part of the experiment you will be doing the same exercise as in the first, only this time it will be accompanied by another exercise.</p>
+		<p>In this exercise, which we will call the Repeat Task, you will hear a series of letters spoken aloud. Your job will be to press the SPACEBAR each time that you hear a letter repeated.</p>
 	`});
 
 	nback_instructions_2 = new InstructionsModel({id: 9, last:true, section: 4, img: '', text: `
@@ -117,7 +116,7 @@ var create_instructions = function() {
 
 	begin_nback_instructions = new InstructionsModel({id: 10, last: true, section: 5, img: '', text: `
 		<h3>Part 2 Instructions</h3>
-		<p>You have now copmleted the Repeat Task practice trials and are ready to proceed to the second part of the experiment.</p>
+		<p>You have now completed the Repeat Task practice trials and are ready to proceed to the second part of the experiment.</p>
 		<p>You will now be doing the Repeat Task at the same time as remembering the words presented on the screen.</p>
 		<p>This is intended to be harder than the first part of the experiment, so don't worry if you find it difficult. Just try to complete both tasks to the best of your ability.</p>
 	`});
@@ -125,9 +124,9 @@ var create_instructions = function() {
 	memory_test_instructions = new InstructionsModel({id: 11, last: true, section: 6, img: '', text: `
 		<h3>Memory Test Instructions</h3>
 		<p>You have now completed both major parts of the experiment. Congratulations!</p>
-		<p>To wrap up we just want to see what you remembered from the words you saw.<br>
-		On the following page, you will see 20 boxes into which you may type what you rememeber of the words in each trial.
-		Don't worry about copying them verbatim; the general gist of the words is fine also.
+		<p>To wrap up we just want to see what you remembered from the words that you've seen.<br>
+		On the following page you will see 20 text boxes. For as many boxes as possible, try to type what you remember of the words in each trial.
+		If you can't remember the words verbatim, feel free to describe the gist or general theme of what you remember.
 		</p>
 		`})
 
@@ -170,7 +169,7 @@ var create_nback_sounds = function(){
 var assignBlocks = function(){
 	var single = Math.floor(Math.random() * 2);
 	var double = !single;
-	var index_1 = Math.floor(Math.random() * (pool_A[single].length) - 1);
-	var index_2 = Math.floor(Math.random() * (pool_A[Number(double)].length) - 1);
-	return [pool_A[single][index_1], pool_A[Number(double)][index_2]]
+	var index_1 = Math.floor(Math.random() * ((pool_B[single].length) - 1));
+	var index_2 = Math.floor(Math.random() * ((pool_B[Number(double)].length) - 1));
+	return [pool_B[single][index_1], pool_B[Number(double)][index_2]]
 }

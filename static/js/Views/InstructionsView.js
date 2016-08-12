@@ -1,6 +1,20 @@
 var InstructionsView = Backbone.View.extend({
   template: _.template(`
-    <div><%= instruction %></div>
+    <div id="container-instructions">
+
+  <hr />
+
+  <div class="instructions well">
+
+      <div><%= instruction %></div>
+
+      <script type="text/javascript">
+      //console.log(psiTurk.getInstructionIndicator())
+      </script>
+
+  </div>
+
+  <hr />
     <div>
       <button type='button' id='next' value='next' class='btn btn-primary btn-lg button-next'>Next 
         <span class='glyphicon glyphicon-arrow-right'></span>

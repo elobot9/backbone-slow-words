@@ -5,8 +5,8 @@ var NBackFeedbackView = Backbone.View.extend({
 			<p>Great Job! You are now ready to move on to the next part of the experiment.</p>
 			<div><a href="#instructions/10" class="btn btn-lg btn-primary">Next</a></div>
 		<% } else { %>
-			<p>You got <%= percent_correct %>% of your answers correct.</p>
-			<p>Click next to try again. Once you have more than 70% correct answers, you can proceed to the next stage of the experiment</p>
+			<p>It looks like you need a bit more practice before we move forward.</p>
+			<p>Click next to try again.</p>
 			<div><a href="#nbackpractice" class="btn btn-lg btn-primary">Next</a></div>
 		<% } %>
 		`),

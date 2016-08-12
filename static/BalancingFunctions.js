@@ -147,24 +147,23 @@ var enoughRepeats = function(array, repeats, counter, index){
 	if (index == undefined){
 		index = 1
 	}
-	else if(index == array.length){
+	else if(index == array.length - 1){
 		if(repeats == counter){
 			return true
 		}
 		else{
 			return false
 		}
-	}
+	};
+	
+	if (array[index] === array[index - 1]){
+		var this_array = array;
+		return enoughRepeats(this_array, repeats, counter + 1, index + 1)
+		}
 	else{
-		if (array[index] === array[index - 1]){
-			var this_array = array
-			return enoughRepeats(this_array, repeats, counter + 1, index + 1)
+		var this_array = array;
+		return enoughRepeats(this_array, repeats, counter, index + 1)
 		}
-		else{
-			var this_array = array
-			return enoughRepeats(this_array, repeats, counter, index + 1)
-		}
-	}
 
 };
 

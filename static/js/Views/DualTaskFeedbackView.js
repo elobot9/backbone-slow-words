@@ -1,6 +1,7 @@
 var DualTaskFeedbackView = Backbone.View.extend({
 	template: _.template(`
-		<p>You got <%= percent_correct %>% of your N-Back answers correct.</p>
+		<p>You caught <%=repeats_correct %> out of <%= repeats_total %> of the repeats.</p>
+		<p>Keep up the good work!</p>
 		<div><a href="<%= next_path %>" class="btn btn-lg btn-primary">Next</a></div>
 		`),
 
@@ -13,7 +14,7 @@ var DualTaskFeedbackView = Backbone.View.extend({
 		else {
 			next_path = "#dualtaskexperiment/" + (this.model.get('id') + 1)
 		}
-		this.$el.html(this.template({percent_correct: this.model.percentCorrect(), next_path: next_path}))
+		this.$el.html(this.template({repeats_correct: this.model.repeatsCaught()[0], repeats_total: this.model.repeatsCaught()[1], next_path: next_path}))
 		return this
 	}
 });
