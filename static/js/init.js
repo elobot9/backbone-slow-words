@@ -41,11 +41,11 @@ $(window).load( function(){
 
 var createWordsTrials = function() {
 	window.words_collection = new WordTrialsCollection();
-	words_trial_model = new WordsTrialModel({id: 0, stimuli: "This is a practice example to get you started", type: "single_task", condition: "trial"})
+	words_trial_model = new WordsTrialModel({id: 0, stimuli: "This is a practice example to get you started", type: "single_task", condition: "trial", stim_type: "practice"})
 	words_collection.add(words_trial_model)
 	var words_pool = blocks[0]
 	for (var i = 0; i < 10; i++) {
-		words_collection.add({id: i + 1, stimuli: words_pool[i], type: "single_task", stim_type: "coherent"});
+		words_collection.add({id: i + 1, stimuli: words_pool[i].stim, type: "single_task", stim_type: words_pool[i].stim_type });
 		}
 };
 
@@ -53,7 +53,7 @@ var createDualTaskTrials = function() {
 	window.dual_task_trials = new DualTaskTrialCollection();
 	var words_pool = blocks[1]
 	for (var i = 0; i < 10; i++) {
-		dual_task_trials.add({id: i, words_stimuli: words_pool[i], type: "dual_task", stim_type: "coherent"});
+		dual_task_trials.add({id: i, words_stimuli: words_pool[i].stim, type: "dual_task", stim_type: words_pool[i].stim_type});
 	}
 };
 

@@ -107,20 +107,36 @@ var printBigArray = function(big_array){
 	for(var i = 0; i < big_array.length; i++){
 		var string_array = new Array();
 		for (var j = 0; j < big_array[i].length; j++){
-			string_array.push("'"+big_array[i][j].stim + "'")
+			var id = big_array[i][j].id;
+			var new_obj;
+			if (id < 100){
+				new_obj = "{stim_type: 'coherent', stim: '" + big_array[i][j].stim + "'}"
+			}
+			else{
+				new_obj = "{stim_type: 'incoherent', stim: '" + big_array[i][j].stim + "'}"
+			}
+			string_array.push(new_obj)
 		};
-		new_big_array.push("[" + string_array + "]")
+		new_big_array.push("[" + string_array + "],")
 	};
 	return new_big_array
 };
 
-var basicStrip = function(object_array){
-	var string_array = new Array();
-	for(var i = 0; i < object_array.length; i++){
-		string_array.push(object_array[i].stim)
-	}
-	return string_array
-};
+// var basicStrip = function(object_array){
+// 	var string_array = new Array();
+// 	for(var i = 0; i < object_array.length; i++){
+// 		var id = object_array[i].id;
+// 		var new_obj;
+// 		if (id < 100){
+// 			new_obj = "{stim_type: 'coherent', stim: " + object_array[i].stim + "}" 
+// 		}
+// 		else{
+// 			new_obj = "{stim_type: 'incoherent', stim: " + object_array[i].stim + "}"
+// 		}
+// 		string_array.push(new_obj)
+// 	}
+// 	return string_array
+// };
 
 //Balance the nback
 var bigNBackShuffle = function(length){
