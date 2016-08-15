@@ -53,6 +53,18 @@ var DualTaskTrialModel = Backbone.Model.extend({
 
 	wordsStimuliArray: function(){
 		return this.get('words_stimuli').split(" ");
+	},
+
+	toDataObject: function() {
+		return {
+        	id: this.get('id'),
+        	trial_type: this.get('type'),
+	        stim_type: this.get('stim_type'), 
+	        stimuli: this.get('words_stimuli'),
+	        answer: this.get('answer'),
+	        timed_response: this.get('timed_response'),
+	        nback_stimuli_data: this.get('nback_stimuli').map(function(nback_stimuli) {nback_stimuli.toDataObject()})
+		}
 	}
 
 });

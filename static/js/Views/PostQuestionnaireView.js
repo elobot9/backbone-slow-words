@@ -38,6 +38,8 @@ var PostQuestionnaireView = Backbone.View.extend({
   var lang_before6 = $('#languageBefore6').val();
   var lang_now = $('#languageNow').val()
 
+  this.gatherData()
+
   psiTurk.recordTrialData({'phase': 'post-questionnaire', 'P1_difficulty': P1_difficulty, 'P1_instructions': P1_instructions, 'P1_instruct_feedback': P1_instruct_feedback, 
     'P1_practicetrial_prep': P1_practicetrial_prep, 'P1_practicetrial_amt': P1_practicetrial_amt, 'P1_general': P1_general, 
     'P2_difficulty': P2_difficulty, 'P2_instructions': P2_instructions, 'P2_instruct_feedback': P2_instruct_feedback, 'P2_practicetrial_prep' :P2_practicetrial_prep,
@@ -390,8 +392,15 @@ var PostQuestionnaireView = Backbone.View.extend({
 `),
 
 gatherData: function(){
-
-
+  window.words_collection.each(function(word_trial){
+    var data_object = word_trial.toDataObject()
+    psiTurk.recordTrialData(word_trial.toDataObject());
+  })
+  window.dual_task_trials.each(function(dual_task_trial){
+    var data_object = dual_task_trial.toDataObject()
+    psiTurk.recordTrialData(dual_task_trial.toDataObject());
+  });
+  psiTurk.saveData()
 }
 
 });

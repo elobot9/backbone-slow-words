@@ -54,8 +54,11 @@ var AnswerView = Backbone.View.extend({
 
   submitAnswer: function() {
     this.model.set('answer', this.model.get('answer') + " " + this.$('#answer').val()); //log what word was in the input one more time
-    psiTurk.recordTrialData(this.model.get('timed_response'))
-    psiTurk.saveData()
+    // var proxy_model = this.model
+    // var data_object = this.createDataObject(proxy_model)
+    // console.log(data_object)
+    // psiTurk.recordTrialData(data_object)
+    // psiTurk.saveData()
     this.nextTrial();
   },
 
@@ -74,5 +77,31 @@ var AnswerView = Backbone.View.extend({
     else if (this.model.get('type') == 'dual_task') {
       router.navigate('dualtaskfeedback/' + (this.model.get('id')), {trigger: true})
     }
-  }
+  },
+
+  // createDataObject: function(model){
+  //   var data_object;
+  //   if(model.get('type') == 'single_task'){
+  //     data_object = {
+  //       id: model.get('id'),
+  //       trial_type: model.get('type'),
+  //       stim_type: model.get('stim_type'), 
+  //       stimuli: model.get('stimuli'),
+  //       answer: model.get('answer'),
+  //       timed_response: model.get('timed_response')
+  //     }
+  //   }
+  //   else{
+  //     data_object = {
+  //       id: model.get('id'),
+  //       trial_type: model.get('type'),
+  //       stim_type: model.get('stim_type'),
+  //       stimuli: model.get('words_stimuli'),
+  //       answer: model.get('answer'),
+  //       timed_response: model.get('timed_response')
+  //     }
+  //   }
+  //   return data_object
+  // }
+
 });

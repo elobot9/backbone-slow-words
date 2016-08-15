@@ -26,5 +26,15 @@ var NBackStimuliModel = Backbone.Model.extend({
 		else{
 			return false
 		}
+	},
+
+	toDataObject: function() {
+		return {
+			id: this.get('id'),
+			correct: this.correct(),
+			correct_answer: this.get('correct_answer'),
+			user_answer: this.get('user_answer'),
+			response_time: this.get('response_time')
+		}
 	}
 });

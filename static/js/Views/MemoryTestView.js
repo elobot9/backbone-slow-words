@@ -48,12 +48,11 @@ var MemoryTestView = Backbone.View.extend({
   },
 
  submitMemoryTest: function() {
-    saveSingleTaskData();
-    saveDualTaskData();
+    // saveSingleTaskData();
+    // saveDualTaskData();
     this.$('input.memory-test').each(function(element) {
       psiTurk.recordUnstructuredData($(this).attr('id'), $(this).val());
     });
-    psiTurk.saveData();
     this.remove()
     router.navigate("postquestionnaire", {trigger: true});
   },

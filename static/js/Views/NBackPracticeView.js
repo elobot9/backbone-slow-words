@@ -51,7 +51,6 @@ var NBackPracticeView = Backbone.View.extend({
 		}
 		else {
 			$(window).off('keydown', this.proxy_handle_keypress);
-			psiTurk.saveData()
 			this.remove();
 			router.navigate('nbackfeedback', {trigger: true});
 		}

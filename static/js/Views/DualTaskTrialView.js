@@ -6,6 +6,8 @@ var DualTaskTrialView = Backbone.View.extend({
 		</div>
 	</div>`),
 
+	stimuli_play_time: null,
+
 	initialize: function(){
 		this.current_words_stimuli = 0;
 		this.current_nback_stimuli = 0;
@@ -23,8 +25,9 @@ var DualTaskTrialView = Backbone.View.extend({
 
 	handleKeyPress: function(e){
 		if (e.keyCode == 32) { //space was pressed
+			response_time = moment().valueOf() - this.stimuli_play_time
 			this.model.get('nback_stimuli').get(this.current_nback_stimuli).set('user_answer', true)
-			psiTurk.recordTrialData([ true, this.model.get('nback_stimuli').get(this.current_nback_stimuli.get('answer'))])
+			this.model.get('nback_stimuli').get(this.current_nback_stimuli).set('response_time', response_time)
 		}
 	},
 
@@ -37,7 +40,7 @@ var DualTaskTrialView = Backbone.View.extend({
 					if (current_model.get('user_answer') == null){
 						current_model.set('user_answer', false)
 					}
-					psiTurk.recordTrialData([{type: 'nback', response: current_model.get('user_answer'), correct_answer: current_model.get('correct_answer'), time: moment().format(), ms: moment().millisecond()}])
+					psiTurk.recordTrialData([{type: 'nback', response: current_model.get('user_answer'), correct_answer: current_model.get('correct_answer')}])
 					_this.current_nback_stimuli++;
 					_this.playNBackStimuli();
 				}, 1000);
@@ -45,7 +48,6 @@ var DualTaskTrialView = Backbone.View.extend({
 		else {
 			$(window).off('keydown', this.proxy_handle_keypress);
 			if (this.isFinished()){
-				psiTurk.saveData();
 				this.remove();
 				router.navigate("dualtaskanswer/" + this.model.get('id'), {trigger: true});
 			}

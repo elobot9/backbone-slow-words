@@ -122,29 +122,13 @@ var printBigArray = function(big_array){
 	return new_big_array
 };
 
-// var basicStrip = function(object_array){
-// 	var string_array = new Array();
-// 	for(var i = 0; i < object_array.length; i++){
-// 		var id = object_array[i].id;
-// 		var new_obj;
-// 		if (id < 100){
-// 			new_obj = "{stim_type: 'coherent', stim: " + object_array[i].stim + "}" 
-// 		}
-// 		else{
-// 			new_obj = "{stim_type: 'incoherent', stim: " + object_array[i].stim + "}"
-// 		}
-// 		string_array.push(new_obj)
-// 	}
-// 	return string_array
-// };
-
 //Balance the nback
 var bigNBackShuffle = function(length){
-	var big_array = new Array();
-	for(var i = 0; i < 400; i++){
-		var nback_candidate = new Array();
-		for (var j = 0; j < length; j++){
-			var element = Math.floor(Math.random()*11)
+	var big_array = new Array(); //create empty array to be filled
+	for(var i = 0; i < 400; i++){ //iterate over arbitrarily large number
+		var nback_candidate = new Array(); //create a new array within the big array for each iteration
+		for (var j = 0; j < length; j++){ //add the indicated number of elements to the array
+			var element = Math.floor(Math.random()*11) //all of the elements are random numbers between 0 and 10
 			nback_candidate.push(element)
 		}
 		big_array.push(nback_candidate)
@@ -152,46 +136,57 @@ var bigNBackShuffle = function(length){
 	return big_array
 };
 
-var enoughRepeats = function(array, repeats, counter, index){
-	if (counter == undefined){
-		counter = 0
-	}
-	else if (counter > repeats){
-		return false
-	};
 
-	if (index == undefined){
-		index = 1
-	}
-	else if(index == array.length - 1){
-		if(repeats == counter){
-			return true
+var enoughRepeats = function(array, repeats, counter, index){
+	if(!(counter == undefined || index == undefined)){
+		if(index === array.length - 1){
+			if(array[index] == array[index -1]){
+				counter++
+			};
+			if (counter != repeats){
+				return false
+			}
+			else{
+				return true
+			}
 		}
 		else{
-			return false
-		}
-	};
-	
-	if (array[index] === array[index - 1]){
-		var this_array = array;
-		return enoughRepeats(this_array, repeats, counter + 1, index + 1)
-		}
-	else{
-		var this_array = array;
-		return enoughRepeats(this_array, repeats, counter, index + 1)
-		}
-
-};
-
-var pruneByRepeats = function(big_array, repeats){
-	for (var i = 0; i < big_array.length; i++){
-		if (! enoughRepeats(big_array[i], repeats)){
-			big_array.splice(i, 1)
+			if(array[index] == array[index -1]){
+				counter++
+				index++
+			}
+			else{
+				index++
+			}
 		}
 	}
-	return big_array
+	else{
+		counter = 0; index = 1;
+	}
+	var this_array = array
+	return enoughRepeats(this_array, repeats, counter, index)
 }
 
+var pruneByRepeats = function(big_array, repeats, index){
+	if(!(index == undefined)){
+		if(index == big_array.length - 1){
+			return big_array
+		}
+		else{
+			var enough_repeats = enoughRepeats(big_array[index], repeats)
+			if(enough_repeats){
+				return pruneByRepeats(big_array, repeats, index + 1)
+			}
+			else if(!enough_repeats){
+				big_array.splice(index, 1)
+				return pruneByRepeats(big_array, repeats, index)
+			}
+		}
+	}
+	else{
+		return pruneByRepeats(big_array, repeats, 0)
+	}
+}
 
 
 
