@@ -166,7 +166,7 @@ var enoughRepeats = function(array, repeats, counter, index){
 	var this_array = array
 	return enoughRepeats(this_array, repeats, counter, index)
 }
-
+//removes arrays that don't have repeats number of repeats
 var pruneByRepeats = function(big_array, repeats, index){
 	if(!(index == undefined)){
 		if(index == big_array.length - 1){
@@ -188,6 +188,15 @@ var pruneByRepeats = function(big_array, repeats, index){
 	}
 }
 
+var printComposite = function(array_1, array_2){
+	var composite = array_1.concat(array_2);
+	var proper_composite = new Array();
+	_.shuffle(composite);
+	for (var i = 0; i < composite.length; i++){
+		proper_composite.push('['+ composite[i] + '],')
+	}
+	return proper_composite
+}
 
 
 

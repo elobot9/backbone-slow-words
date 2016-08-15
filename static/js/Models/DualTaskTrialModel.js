@@ -1,15 +1,24 @@
 var DualTaskTrialModel = Backbone.Model.extend({
 	initialize: function(attributes, options){
 		this.set('words_stimuli', attributes.words_stimuli)
+		var letter_array = this.createSourceArray(this.wordsStimuliArray().length)
+		this.set('nback_track', letter_array)
 		this.set('nback_stimuli', new NBackStimuliCollection());
 		this.populateStimuliCollection();
+	},
+
+	createSourceArray: function(length){
+		var nback_source = big_nback_array[length]
+		_.shuffle(nback_source)
+		var letter_array = nback_source.shift()
+		return letter_array
 	},
 
 
 	populateStimuliCollection: function() {
 		var one_back = null
 		for (var i = 0; i < this.wordsStimuliArray().length; i++){
-			stimuli_id = Math.floor(Math.random() * 5);
+			stimuli_id = this.get('nback_track')[i]
 			var answer = null;
 			if (this.get('nback_stimuli').get(i - 1) != undefined && this.get('nback_stimuli').get(i - 1).get('stimuli_id') == stimuli_id){
 				//same stimuli as one back

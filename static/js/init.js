@@ -162,7 +162,8 @@ var create_nback_sounds = function(){
 		 new Howl({urls: [path + 'G.wav']}),
 		 new Howl({urls: [path + 'H.wav']}),
 		 new Howl({urls: [path + 'I.wav']}),
-		 new Howl({urls: [path + 'J.wav']})
+		 new Howl({urls: [path + 'J.wav']}),
+		 new Howl({urls: [path + 'K.wav']})
 	];
 };
 
