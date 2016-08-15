@@ -399,6 +399,7 @@ gatherData: function(){
   window.dual_task_trials.each(function(dual_task_trial){
     var data_object = dual_task_trial.toDataObject()
     psiTurk.recordTrialData(dual_task_trial.toDataObject());
+    console.log(dual_task_trial.toDataObject())
   });
   psiTurk.saveData()
 }

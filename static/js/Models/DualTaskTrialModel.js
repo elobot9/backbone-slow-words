@@ -72,7 +72,7 @@ var DualTaskTrialModel = Backbone.Model.extend({
 	        stimuli: this.get('words_stimuli'),
 	        answer: this.get('answer'),
 	        timed_response: this.get('timed_response'),
-	        nback_stimuli_data: this.get('nback_stimuli').map(function(nback_stimuli) {nback_stimuli.toDataObject()})
+	        nback_stimuli_data: this.get('nback_stimuli').map(function(nback_stimuli) {return nback_stimuli.toDataObject()})
 		}
 	}
 
